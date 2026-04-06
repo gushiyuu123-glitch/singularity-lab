@@ -219,7 +219,7 @@ export default function LogRoom() {
                   </span>
                 </div>
 
-                <h2 className="mb-3 text-[20px] font-light leading-[1.45] text-white/94 md:text-[22px]">
+                <h2 className="mwb-3 text-[20px] font-light leading-[1.45] text-white/94 md:text-[22px]">
                   {entry.title}
                 </h2>
 
