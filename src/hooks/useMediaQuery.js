@@ -1,31 +1,31 @@
 import { useEffect, useState } from "react";
 
 export function useMediaQuery(query) {
-  const getMatches = () => {
-    if (typeof window === "undefined") return false;
+  const getInitialValue = () => {
+    if (typeof window === "undefined" || !query) return false;
     return window.matchMedia(query).matches;
   };
 
-  const [matches, setMatches] = useState(getMatches);
+  const [matches, setMatches] = useState(() => getInitialValue());
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || !query) return;
 
-    const mediaQueryList = window.matchMedia(query);
+    const mediaQuery = window.matchMedia(query);
 
-    const onChange = (event) => {
+    const handleChange = (event) => {
       setMatches(event.matches);
     };
 
-    setMatches(mediaQueryList.matches);
+    setMatches(mediaQuery.matches);
 
-    if (mediaQueryList.addEventListener) {
-      mediaQueryList.addEventListener("change", onChange);
-      return () => mediaQueryList.removeEventListener("change", onChange);
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
     }
 
-    mediaQueryList.addListener(onChange);
-    return () => mediaQueryList.removeListener(onChange);
+    mediaQuery.addListener(handleChange);
+    return () => mediaQuery.removeListener(handleChange);
   }, [query]);
 
   return matches;
