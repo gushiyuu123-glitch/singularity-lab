@@ -4,6 +4,7 @@ import { useIsPC } from "./hooks/useIsPC";
 import GlobalNav from "./components/GlobalNav";
 import GlobalNavSP from "./components/GlobalNavSP";
 import TransitionOverlay from "./components/TransitionOverlay";
+import ScrollToTop from "./components/ScrollToTop";
 
 import Home from "./pages/Home";
 import ChatGPTRoom from "./rooms/ChatGPTRoom";
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <AppChrome isPC={isPC} />
 
       <Routes>
@@ -54,7 +56,6 @@ function AppChrome({ isPC }) {
 function NotFound() {
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-bg px-6 text-text-primary">
-      {/* background */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#020611_0%,#040a16_42%,#02040b_100%)]" />
 
@@ -74,7 +75,6 @@ function NotFound() {
         <div className="absolute right-[14%] top-[24%] h-[240px] w-[240px] rounded-full bg-fuchsia-300/8 blur-3xl" />
       </div>
 
-      {/* content */}
       <div className="relative z-[1] w-full max-w-[720px] text-center">
         <p className="mb-4 text-[11px] tracking-[0.34em] text-cyan-200/82">
           SINGULARITY LAB
@@ -94,10 +94,7 @@ function NotFound() {
         </p>
 
         <div className="mt-8 flex justify-center">
-          <Link
-            to="/"
-            className="sg-button group"
-          >
+          <Link to="/" className="sg-button group">
             <span className="sg-button-label">RETURN</span>
             <span className="sg-button-text">HOMEへ戻る</span>
             <span className="text-[14px] text-cyan-200 transition-transform duration-300 group-hover:translate-x-[3px]">
