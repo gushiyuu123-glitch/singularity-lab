@@ -395,44 +395,44 @@ export default function HeroSP() {
   );
 }
 
-function EnterButtonSP() {
+function EnterButton() {
   const navigate = useNavigate();
-  const [isPressed, setIsPressed] = useState(false);
+  const [hov, setHov] = useState(false);
 
-  const handleClick = async () => {
-    setIsPressed(true);
+  const handleClick = useCallback(async () => {
     await TransitionOverlay.play();
-    navigate("/log");
-  };
+    navigate("/log-room");
+  }, [navigate]);
 
   return (
     <button
       type="button"
-      onMouseDown={() => setIsPressed(true)}
-      onMouseUp={() => setIsPressed(false)}
-      onTouchStart={() => setIsPressed(true)}
-      onTouchEnd={() => setIsPressed(false)}
       onClick={handleClick}
-      className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-cyan-200/18 bg-[rgba(8,18,38,0.72)] px-4 py-[12px] shadow-[0_0_28px_-18px_rgba(34,211,238,0.28)] transition-all duration-300 active:scale-[0.985]"
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      className="group relative inline-flex items-center gap-4 overflow-hidden rounded-full border border-cyan-200/20 bg-[rgba(6,16,36,0.80)] px-7 py-[14px] shadow-[0_0_40px_-22px_rgba(34,211,238,0.32)] transition-all duration-350 hover:border-cyan-200/34 hover:shadow-[0_0_56px_-18px_rgba(34,211,238,0.44)]"
     >
-      <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(34,211,238,0.08),transparent_36%,rgba(192,132,252,0.08))]" />
-      <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/22 to-transparent" />
+      <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(100deg,rgba(34,211,238,0.08),transparent_32%,rgba(192,132,252,0.08))]" />
+      <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/26 to-transparent" />
       <span
-        className="pointer-events-none absolute inset-0 rounded-full transition-opacity duration-300"
+        className="pointer-events-none absolute inset-0 rounded-full transition-opacity duration-350"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 50%, rgba(34,211,238,0.10), transparent 68%)",
-          opacity: isPressed ? 1 : 0.72,
+            "radial-gradient(ellipse at 50% 50%, rgba(34,211,238,0.09), transparent 68%)",
+          opacity: hov ? 1 : 0,
         }}
       />
 
-      <span className="relative z-10 text-[10px] tracking-[0.24em] text-cyan-200">
-        ENTER
+      <span className="relative z-10 text-[10.5px] tracking-[0.28em] text-cyan-200/88 uppercase">
+        Enter the Log Room
       </span>
-      <span className="relative z-10 text-[12px] text-white">
-        観測記録を開く
+      <span className="relative z-10 text-[13px] text-white/80">
+        観測記録室へ
       </span>
-      <span className="relative z-10 text-[14px] text-cyan-200 transition-transform duration-300 group-active:translate-x-[2px]">
+      <span
+        className="relative z-10 text-[15px] text-cyan-200 transition-transform duration-300"
+        style={{ transform: hov ? "translateX(4px)" : "translateX(0)" }}
+      >
         →
       </span>
     </button>

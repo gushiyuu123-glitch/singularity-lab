@@ -7,6 +7,7 @@ import TransitionOverlay from "./components/TransitionOverlay";
 import ScrollToTop from "./components/ScrollToTop";
 
 import Home from "./pages/Home";
+import LogRoom from "./pages/LogRoom";
 import ChatGPTRoom from "./rooms/ChatGPTRoom";
 import ClaudeRoom from "./rooms/ClaudeRoom";
 import GeminiRoom from "./rooms/GeminiRoom";
@@ -33,6 +34,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/log-room" element={<LogRoom />} />
 
         {roomRoutes.map(({ path, Component }) => (
           <Route key={path} path={path} element={<Component />} />

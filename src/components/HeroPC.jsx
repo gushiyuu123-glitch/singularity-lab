@@ -307,14 +307,19 @@ function HeroLeft({ panelRef }) {
   );
 }
 
-/* ─────────────────────────────────────────────────────────
-   ENTERボタン
-───────────────────────────────────────────────────────── */
 function EnterButton() {
+  const navigate = useNavigate();
   const [hov, setHov] = useState(false);
+
+  const handleClick = useCallback(async () => {
+    await TransitionOverlay.play();
+    navigate("/log-room");
+  }, [navigate]);
+
   return (
     <button
       type="button"
+      onClick={handleClick}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       className="group relative inline-flex items-center gap-4 overflow-hidden rounded-full border border-cyan-200/20 bg-[rgba(6,16,36,0.80)] px-7 py-[14px] shadow-[0_0_40px_-22px_rgba(34,211,238,0.32)] transition-all duration-350 hover:border-cyan-200/34 hover:shadow-[0_0_56px_-18px_rgba(34,211,238,0.44)]"
@@ -324,14 +329,18 @@ function EnterButton() {
       <span
         className="pointer-events-none absolute inset-0 rounded-full transition-opacity duration-350"
         style={{
-          background: "radial-gradient(ellipse at 50% 50%, rgba(34,211,238,0.09), transparent 68%)",
+          background:
+            "radial-gradient(ellipse at 50% 50%, rgba(34,211,238,0.09), transparent 68%)",
           opacity: hov ? 1 : 0,
         }}
       />
+
       <span className="relative z-10 text-[10.5px] tracking-[0.28em] text-cyan-200/88 uppercase">
-        Enter the Log
+        Enter the Log Room
       </span>
-      <span className="relative z-10 text-[13px] text-white/80">観測記録を開く</span>
+      <span className="relative z-10 text-[13px] text-white/80">
+        観測記録室へ
+      </span>
       <span
         className="relative z-10 text-[15px] text-cyan-200 transition-transform duration-300"
         style={{ transform: hov ? "translateX(4px)" : "translateX(0)" }}
@@ -341,7 +350,6 @@ function EnterButton() {
     </button>
   );
 }
-
 /* ─────────────────────────────────────────────────────────
    右カラム
 ───────────────────────────────────────────────────────── */
