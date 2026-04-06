@@ -103,6 +103,92 @@ export default function HeroPC() {
         </div>
       </div>
 
+      {/* ORIGIN LINK — 左下 */}
+      <div className="fixed bottom-8 left-10 z-[40]">
+        <a
+          href="https://origin-gray.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="ORIGIN"
+          className="group inline-flex items-center gap-4 select-none"
+        >
+          <span
+            className="block h-px w-[56px] transition-all duration-500 group-hover:w-[84px]"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(160,220,255,0), rgba(160,220,255,0.85), rgba(255,255,255,0.18))",
+              opacity: 0.72,
+              boxShadow: "0 0 10px rgba(120,170,255,0.18)",
+            }}
+          />
+
+          <div
+            className="transition-all duration-500 group-hover:-translate-y-[1px]"
+            style={{
+              color: "rgba(255,255,255,0.88)",
+              textShadow:
+                "0 1px 2px rgba(0,0,0,0.35), 0 0 10px rgba(120,170,255,0.12)",
+            }}
+          >
+            <p
+              className="text-[9px] uppercase tracking-[0.42em] transition-all duration-500 group-hover:tracking-[0.48em]"
+              style={{ opacity: 0.44 }}
+            >
+              Origin
+            </p>
+            <p
+              className="mt-[6px] text-[13px] tracking-[0.18em] transition-all duration-500 group-hover:tracking-[0.24em]"
+              style={{ opacity: 0.84 }}
+            >
+              創造の源へ
+            </p>
+          </div>
+        </a>
+      </div>
+
+      {/* GUSHIKEN DESIGN LINK — 右下 */}
+      <div className="fixed bottom-8 right-10 z-[40]">
+        <a
+          href="https://gushikendesign.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GUSHIKEN DESIGN"
+          className="group inline-flex items-center gap-4 select-none"
+        >
+          <div
+            className="text-right transition-all duration-500 group-hover:-translate-y-[1px]"
+            style={{
+              color: "rgba(255,255,255,0.88)",
+              textShadow:
+                "0 1px 2px rgba(0,0,0,0.35), 0 0 8px rgba(255,255,255,0.08)",
+            }}
+          >
+            <p
+              className="text-[9px] uppercase tracking-[0.42em] transition-all duration-500 group-hover:tracking-[0.48em]"
+              style={{ opacity: 0.42 }}
+            >
+              Base
+            </p>
+            <p
+              className="mt-[6px] text-[13px] tracking-[0.16em] transition-all duration-500 group-hover:tracking-[0.22em]"
+              style={{ opacity: 0.82 }}
+            >
+              GUSHIKEN DESIGN
+            </p>
+          </div>
+
+          <span
+            className="block h-px w-[56px] transition-all duration-500 group-hover:w-[84px]"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(255,255,255,0.18), rgba(170,240,255,0.74), rgba(170,240,255,0))",
+              opacity: 0.68,
+              boxShadow: "0 0 8px rgba(170,240,255,0.12)",
+            }}
+          />
+        </a>
+      </div>
+
       {/* 前面縦光 */}
       <div className="pointer-events-none absolute left-1/2 top-[8%] z-[12] h-[82%] w-[180px] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,rgba(170,240,255,0.06)_0%,rgba(170,240,255,0.02)_32%,transparent_72%)] blur-[18px]" />
       {/* 底部フェード */}
@@ -350,6 +436,7 @@ function EnterButton() {
     </button>
   );
 }
+
 /* ─────────────────────────────────────────────────────────
    右カラム
 ───────────────────────────────────────────────────────── */

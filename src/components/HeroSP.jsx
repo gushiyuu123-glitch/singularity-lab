@@ -119,7 +119,7 @@ export default function HeroSP() {
           src={heroImg}
           alt=""
           aria-hidden="true"
-          className="h-full w-full object-cover scale-[1.14] -translate-y-[4%] opacity-[0.09]"
+          className="h-full w-full scale-[1.14] object-cover -translate-y-[4%] opacity-[0.09]"
         />
 
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,17,0.14)_0%,rgba(3,8,20,0.72)_34%,rgba(1,3,10,0.98)_100%)]" />
@@ -164,10 +164,10 @@ export default function HeroSP() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[24%] bg-gradient-to-t from-[#020611] to-transparent" />
 
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <span className="absolute left-[14%] top-[16%] h-[7px] w-[7px] rounded-full bg-cyan-300/80 blur-[7px] animate-pulse" />
-          <span className="absolute left-[82%] top-[22%] h-[8px] w-[8px] rounded-full bg-fuchsia-300/70 blur-[8px] animate-pulse" />
-          <span className="absolute left-[74%] top-[57%] h-[7px] w-[7px] rounded-full bg-violet-300/70 blur-[7px] animate-pulse" />
-          <span className="absolute left-[22%] top-[67%] h-[6px] w-[6px] rounded-full bg-white/70 blur-[8px] animate-pulse" />
+          <span className="absolute left-[14%] top-[16%] h-[7px] w-[7px] animate-pulse rounded-full bg-cyan-300/80 blur-[7px]" />
+          <span className="absolute left-[82%] top-[22%] h-[8px] w-[8px] animate-pulse rounded-full bg-fuchsia-300/70 blur-[8px]" />
+          <span className="absolute left-[74%] top-[57%] h-[7px] w-[7px] animate-pulse rounded-full bg-violet-300/70 blur-[7px]" />
+          <span className="absolute left-[22%] top-[67%] h-[6px] w-[6px] animate-pulse rounded-full bg-white/70 blur-[8px]" />
         </div>
 
         <svg
@@ -310,7 +310,7 @@ export default function HeroSP() {
       {/* ========================================
           ACCESS PANEL
       ======================================== */}
-      <div ref={panelRef} className="relative z-[14] mb-10 mt-9 px-4">
+      <div ref={panelRef} className="relative z-[14] mt-9 px-4">
         <div className="pointer-events-none mb-4 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
         <div className="relative overflow-hidden rounded-[28px] border border-white/14 bg-[rgba(7,18,34,0.52)] p-4 backdrop-blur-[18px] shadow-[0_0_68px_-28px_rgba(140,110,255,0.16)]">
@@ -389,6 +389,90 @@ export default function HeroSP() {
               glow="fuchsia"
             />
           </div>
+        </div>
+      </div>
+
+      {/* ========================================
+          SUB LINKS
+      ======================================== */}
+      <div className="relative z-[16] mb-8 mt-6 px-4">
+        <div className="grid grid-cols-2 gap-3">
+          <a
+            href="https://origin-gray.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ORIGIN"
+            className="group flex items-center gap-3 rounded-[18px] border border-white/10 bg-[rgba(8,16,30,0.42)] px-4 py-3 backdrop-blur-[10px]"
+          >
+            <span
+              className="block h-px w-[26px] transition-all duration-500 group-active:w-[34px]"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(160,220,255,0), rgba(160,220,255,0.85), rgba(255,255,255,0.18))",
+                opacity: 0.74,
+                boxShadow: "0 0 10px rgba(120,170,255,0.16)",
+              }}
+            />
+            <div
+              style={{
+                color: "rgba(255,255,255,0.9)",
+                textShadow:
+                  "0 1px 2px rgba(0,0,0,0.35), 0 0 10px rgba(120,170,255,0.10)",
+              }}
+            >
+              <p
+                className="text-[8px] uppercase tracking-[0.34em]"
+                style={{ opacity: 0.46 }}
+              >
+                Origin
+              </p>
+              <p
+                className="mt-[5px] text-[11px] tracking-[0.14em]"
+                style={{ opacity: 0.86 }}
+              >
+                創造の源へ
+              </p>
+            </div>
+          </a>
+
+          <a
+            href="https://gushikendesign.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GUSHIKEN DESIGN"
+            className="group flex items-center justify-between rounded-[18px] border border-white/10 bg-[rgba(8,16,30,0.42)] px-4 py-3 backdrop-blur-[10px]"
+          >
+            <div
+              style={{
+                color: "rgba(255,255,255,0.9)",
+                textShadow:
+                  "0 1px 2px rgba(0,0,0,0.35), 0 0 8px rgba(255,255,255,0.08)",
+              }}
+            >
+              <p
+                className="text-[8px] uppercase tracking-[0.34em]"
+                style={{ opacity: 0.44 }}
+              >
+                Base
+              </p>
+              <p
+                className="mt-[5px] text-[11px] tracking-[0.12em]"
+                style={{ opacity: 0.84 }}
+              >
+                GUSHIKEN DESIGN
+              </p>
+            </div>
+
+            <span
+              className="block h-px w-[26px] transition-all duration-500 group-active:w-[34px]"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(255,255,255,0.18), rgba(170,240,255,0.74), rgba(170,240,255,0))",
+                opacity: 0.7,
+                boxShadow: "0 0 8px rgba(170,240,255,0.12)",
+              }}
+            />
+          </a>
         </div>
       </div>
     </section>
