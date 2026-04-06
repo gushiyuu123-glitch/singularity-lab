@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import heroImg from "../assets/singularity-hero1.png";
 import TransitionOverlay from "../components/TransitionOverlay";
-import logo from "../assets/singularity-logo1.png";
+
+const withBase = (path) => `${import.meta.env.BASE_URL}${path}`;
+
+const heroImg = withBase("images/singularity-hero1.png");
+const logo = withBase("images/singularity-logo1.png");
 
 export default function HeroSP() {
   return (
@@ -127,7 +130,7 @@ export default function HeroSP() {
             <p className="absolute left-[1px] top-[1px] text-[40px] font-semibold leading-[0.98] tracking-[-0.04em] text-cyan-300/14">
               HUMAN × AI
             </p>
-            <p className="relative text-[40px] font-semibold leading-[0.98] tracking-[-0.04em] bg-[linear-gradient(180deg,#ffffff_0%,#cdefff_48%,#92dcff_100%)] bg-clip-text text-transparent">
+            <p className="relative bg-[linear-gradient(180deg,#ffffff_0%,#cdefff_48%,#92dcff_100%)] bg-clip-text text-[40px] font-semibold leading-[0.98] tracking-[-0.04em] text-transparent">
               HUMAN × AI
             </p>
           </div>
@@ -136,7 +139,7 @@ export default function HeroSP() {
             <p className="absolute left-[1px] top-[1px] text-[36px] font-semibold leading-[0.98] tracking-[-0.04em] text-fuchsia-300/12">
               INTERFACE
             </p>
-            <p className="relative text-[36px] font-semibold leading-[0.98] tracking-[-0.04em] bg-[linear-gradient(90deg,#ffffff_0%,#dfc6ff_48%,#93efff_100%)] bg-clip-text text-transparent">
+            <p className="relative bg-[linear-gradient(90deg,#ffffff_0%,#dfc6ff_48%,#93efff_100%)] bg-clip-text text-[36px] font-semibold leading-[0.98] tracking-[-0.04em] text-transparent">
               INTERFACE
             </p>
           </div>
@@ -168,7 +171,7 @@ export default function HeroSP() {
       {/* =========================
           ACCESS PANEL
       ========================== */}
-      <div className="relative z-[14] mt-10 mb-12 px-4">
+      <div className="relative z-[14] mb-12 mt-10 px-4">
         {/* 区切り */}
         <div className="pointer-events-none mb-4 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
@@ -185,7 +188,7 @@ export default function HeroSP() {
           <div className="pointer-events-none absolute inset-0 rounded-[28px] bg-gradient-to-b from-white/10 via-transparent to-white/3 opacity-[0.14]" />
           <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/14 to-transparent" />
           <div className="pointer-events-none absolute right-[-12%] top-[-10%] h-[8rem] w-[8rem] rounded-full bg-fuchsia-300/8 blur-3xl" />
-          <div className="pointer-events-none absolute left-[-12%] bottom-[-10%] h-[7rem] w-[7rem] rounded-full bg-cyan-300/8 blur-3xl" />
+          <div className="pointer-events-none absolute bottom-[-10%] left-[-12%] h-[7rem] w-[7rem] rounded-full bg-cyan-300/8 blur-3xl" />
 
           {/* top */}
           <div className="relative z-10 mb-4">
@@ -309,9 +312,13 @@ function CategorySP({ label, desc, meta, to, glow = "cyan" }) {
       className="group block w-full text-left transition-transform active:scale-[0.985]"
     >
       <div className="relative overflow-hidden rounded-[22px] border border-white/14 bg-[rgba(7,18,34,0.42)] p-4 backdrop-blur-[10px] transition-all duration-300 active:border-white/22">
-        <div className={`pointer-events-none absolute inset-y-0 left-0 w-[88px] bg-gradient-to-r ${glowMap[glow]} to-transparent blur-2xl`} />
+        <div
+          className={`pointer-events-none absolute inset-y-0 left-0 w-[88px] bg-gradient-to-r ${glowMap[glow]} to-transparent blur-2xl`}
+        />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/14 to-transparent" />
-        <div className={`absolute left-3 top-[18px] h-[6px] w-[6px] rounded-full ${dotMap[glow]} shadow-[0_0_10px_rgba(255,255,255,0.22)]`} />
+        <div
+          className={`absolute left-3 top-[18px] h-[6px] w-[6px] rounded-full ${dotMap[glow]} shadow-[0_0_10px_rgba(255,255,255,0.22)]`}
+        />
 
         <div className="flex items-start justify-between gap-3 pl-6">
           <div>

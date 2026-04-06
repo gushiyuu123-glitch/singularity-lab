@@ -4,9 +4,12 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, MeshDistortMaterial, Sparkles } from "@react-three/drei";
 import * as THREE from "three";
 
-import heroImg from "../assets/singularity-hero1.png";
 import TransitionOverlay from "../components/TransitionOverlay";
-import logo from "../assets/singularity-logo1.png";
+
+const withBase = (path) => `${import.meta.env.BASE_URL}${path}`;
+
+const heroImg = withBase("images/singularity-hero1.png");
+const logo = withBase("images/singularity-logo1.png");
 
 export default function HeroPC() {
   return (
@@ -34,7 +37,6 @@ export default function HeroPC() {
 
         <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-cyan-200/20 to-transparent" />
 
-        {/* 左側の可読性暗幕 */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-[54%] bg-[linear-gradient(90deg,rgba(2,6,17,0.82)_0%,rgba(2,6,17,0.66)_36%,rgba(2,6,17,0.22)_74%,transparent_100%)]" />
 
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -97,7 +99,6 @@ function HeroLeft() {
       </div>
 
       <div className="relative max-w-[760px]">
-        {/* 背後発光タイポを弱める */}
         <div className="pointer-events-none absolute -left-2 top-[-22px] select-none text-[96px] font-black uppercase leading-none tracking-[0.10em] text-white/[0.035] blur-[1px]">
           SINGULARITY
         </div>
@@ -111,7 +112,6 @@ function HeroLeft() {
           </span>
         </h1>
 
-        {/* 日本語は少し詰めて読みやすく */}
         <div className="relative mb-7">
           <p className="absolute left-[1px] top-[1px] text-[32px] font-light tracking-[0.18em] text-cyan-300/16">
             境界の研究室
@@ -290,9 +290,13 @@ function Category({ label, desc, meta, to, glow = "cyan" }) {
       className="group w-full text-left"
     >
       <div className="relative overflow-hidden rounded-[26px] border border-white/12 bg-[rgba(7,18,34,0.38)] p-4 backdrop-blur-[8px] transition-all duration-300 group-hover:-translate-y-[3px] group-hover:border-white/22 group-hover:bg-[rgba(9,22,42,0.56)] group-hover:shadow-[0_20px_70px_-48px_rgba(255,255,255,0.28)]">
-        <div className={`pointer-events-none absolute inset-y-0 left-0 w-[132px] bg-gradient-to-r ${glowMap[glow]} to-transparent blur-2xl`} />
+        <div
+          className={`pointer-events-none absolute inset-y-0 left-0 w-[132px] bg-gradient-to-r ${glowMap[glow]} to-transparent blur-2xl`}
+        />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/14 to-transparent" />
-        <div className={`absolute left-4 top-[20px] h-[6px] w-[6px] rounded-full ${dotMap[glow]} shadow-[0_0_12px_rgba(255,255,255,0.24)]`} />
+        <div
+          className={`absolute left-4 top-[20px] h-[6px] w-[6px] rounded-full ${dotMap[glow]} shadow-[0_0_12px_rgba(255,255,255,0.24)]`}
+        />
 
         <div className="flex items-start justify-between gap-4 pl-5">
           <div>
@@ -508,7 +512,12 @@ function VerticalBeam() {
   return (
     <mesh ref={beamRef} position={[0.12, 0.16, 0]}>
       <cylinderGeometry args={[0.4, 0.4, 8.2, 32, 1, true]} />
-      <meshBasicMaterial color="#a8f2ff" transparent opacity={0.18} side={THREE.DoubleSide} />
+      <meshBasicMaterial
+        color="#a8f2ff"
+        transparent
+        opacity={0.18}
+        side={THREE.DoubleSide}
+      />
     </mesh>
   );
 }
