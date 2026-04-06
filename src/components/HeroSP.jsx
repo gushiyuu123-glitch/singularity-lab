@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import TransitionOverlay from "../components/TransitionOverlay";
@@ -395,7 +395,7 @@ export default function HeroSP() {
   );
 }
 
-function EnterButton() {
+function EnterButtonSP() {
   const navigate = useNavigate();
   const [hov, setHov] = useState(false);
 
