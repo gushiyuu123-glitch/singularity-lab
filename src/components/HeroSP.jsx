@@ -285,10 +285,10 @@ export default function HeroSP() {
 
           <div ref={copyRef}>
             <p className="mt-4 max-w-[24rem] text-[13.5px] leading-[1.9] tracking-[0.01em] text-white/78">
-              これは説明のためのトップではなく、
-              人類と人工知能の境界面を視覚化した観測装置。
-              思考、視覚、推論、生成が一点へ収束し、
-              言語と光と演算が静かな臨界点として脈動している。
+              AIって結局何ができるの？
+              それを、見てわかる形でまとめた研究室。
+              考えるAI、調べるAI、作るAIを、
+              ひとつずつ見ていける入口です。
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">
@@ -300,7 +300,7 @@ export default function HeroSP() {
             <div className="mt-6 flex items-center gap-3">
               <EnterButtonSP />
               <div className="text-[10.5px] leading-[1.7] text-white/42">
-                各知性層へ接続。
+                気になるAIから見ていけます。
               </div>
             </div>
           </div>
@@ -327,7 +327,7 @@ export default function HeroSP() {
               <span className="h-px flex-1 bg-gradient-to-r from-white/12 to-transparent" />
             </div>
             <p className="mt-2 text-[12px] leading-[1.75] text-white/50">
-              各AIへ接続し、未来の構造を読む。
+              気になるAIを選んで、違いを見ていけます。
             </p>
           </div>
 
@@ -342,47 +342,48 @@ export default function HeroSP() {
             </div>
 
             <p className="mb-1 text-[16px] font-light text-white/94">
-              すべてを統合する知性の核
+              いろんなAIをまとめて見る部屋
             </p>
 
             <p className="text-[11.5px] leading-[1.76] text-white/66">
-              個別機能の先で、それらを束ねる“次の知性”を
-              仮説として展示する中枢区画。
+              ChatGPT、Claude、Gemini、DeepSeek、Midjourney。
+              それぞれの違いを見ながら、
+              その先のAIまで考えるための中枢です。
             </p>
           </div>
 
           <div className="relative z-10 space-y-3">
             <CategorySP
               label="ChatGPT"
-              desc="思考・言語・解釈に強い対話OS"
+              desc="考えを整理したり、文章に強いAI"
               meta="LANGUAGE / STRUCTURE"
               to="/chatgpt"
               glow="cyan"
             />
             <CategorySP
               label="Gemini"
-              desc="検索・画像・動画を横断する統合知性"
+              desc="検索や画像まで広く扱えるAI"
               meta="SEARCH / MULTIMODAL"
               to="/gemini"
               glow="sky"
             />
             <CategorySP
               label="Claude"
-              desc="長文読解と安定推論に寄った静かな側近"
+              desc="長い文章を読むのが得意なAI"
               meta="LONG CONTEXT / STABILITY"
               to="/claude"
               glow="violet"
             />
             <CategorySP
               label="DeepSeek"
-              desc="演算、推論、コスパへ振り切った計算炉"
+              desc="推論やコードを速く回しやすいAI"
               meta="COMPUTE / REASONING"
               to="/deepseek"
               glow="emerald"
             />
             <CategorySP
               label="Midjourney"
-              desc="視覚世界を一枚へ圧縮する生成装置"
+              desc="イメージや世界観づくりに強いAI"
               meta="VISUAL / IMAGINATION"
               to="/midjourney"
               glow="fuchsia"
