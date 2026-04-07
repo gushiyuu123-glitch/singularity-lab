@@ -57,6 +57,7 @@ export default function LogRoom() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-bg text-text-primary">
+      {/* background */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#020611_0%,#040a16_42%,#02040b_100%)]" />
 
@@ -83,14 +84,18 @@ export default function LogRoom() {
         />
 
         <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-white/12 to-transparent" />
-        <div className="absolute left-[14%] top-[12%] h-[260px] w-[260px] rounded-full bg-cyan-300/8 blur-3xl" />
-        <div className="absolute right-[10%] top-[18%] h-[280px] w-[280px] rounded-full bg-fuchsia-300/8 blur-3xl" />
+
+        <div className="absolute left-[10%] top-[10%] h-[320px] w-[320px] rounded-full bg-cyan-300/8 blur-3xl" />
+        <div className="absolute right-[8%] top-[16%] h-[320px] w-[320px] rounded-full bg-fuchsia-300/8 blur-3xl" />
+        <div className="absolute left-[38%] top-[18%] h-[220px] w-[220px] rounded-full bg-indigo-300/5 blur-3xl" />
+
         <div className="absolute inset-x-0 bottom-0 h-[20%] bg-gradient-to-t from-[#020611] to-transparent" />
       </div>
 
-      <section className="relative z-[1] px-6 pb-12 pt-28 md:px-10 md:pt-32 xl:px-14">
-        <div className="mx-auto max-w-[1320px]">
-          <div className="grid items-start gap-8 xl:grid-cols-[minmax(0,1fr)_320px]">
+      {/* hero */}
+      <section className="relative z-[1] px-6 pb-14 pt-28 md:px-10 md:pt-32 xl:px-14">
+        <div className="mx-auto max-w-[1360px]">
+          <div className="grid items-start gap-8 xl:grid-cols-[minmax(0,1fr)_340px]">
             <div className="min-w-0">
               <div className="mb-5 flex items-center gap-4">
                 <span className="flex items-center gap-2">
@@ -105,12 +110,12 @@ export default function LogRoom() {
                 </span>
               </div>
 
-              <div className="relative max-w-[860px]">
-                <div className="pointer-events-none absolute -left-1 top-[-18px] select-none text-[68px] font-black uppercase leading-none tracking-[0.14em] text-white/[0.03] md:text-[98px]">
+              <div className="relative max-w-[920px]">
+                <div className="pointer-events-none absolute -left-1 top-[-18px] select-none text-[68px] font-black uppercase leading-none tracking-[0.14em] text-white/[0.03] md:text-[98px] xl:text-[118px]">
                   LOG ROOM
                 </div>
 
-                <h1 className="relative text-[42px] font-semibold leading-[0.94] tracking-[-0.04em] text-white md:text-[64px] xl:text-[78px]">
+                <h1 className="relative text-[42px] font-semibold leading-[0.94] tracking-[-0.04em] text-white md:text-[64px] xl:text-[82px]">
                   <span className="block bg-[linear-gradient(180deg,#ffffff_0%,#d8f3ff_48%,#8fdcff_100%)] bg-clip-text text-transparent">
                     OBSERVATION
                   </span>
@@ -119,15 +124,16 @@ export default function LogRoom() {
                   </span>
                 </h1>
 
-                <div className="mt-6 max-w-[640px] space-y-4">
+                <div className="mt-6 max-w-[700px] space-y-4">
                   <p className="text-[15px] leading-[2] text-text-secondary md:text-[16px]">
                     ここは、AIや制作についての記録を置いていく部屋です。
                     気づいたこと、試したこと、考えたことを、
                     少しずつ残していきます。
                   </p>
                   <p className="text-[14px] leading-[1.95] text-text-muted md:text-[15px]">
-                    完成したものだけでなく、
-                    途中で見えたことも記録していくための場所です。
+                    完成した答えだけではなく、
+                    途中で見えた違和感や仮説も含めて保存していく。
+                    この部屋は、その痕跡を静かに積み重ねていくための保管庫です。
                   </p>
                 </div>
 
@@ -170,8 +176,19 @@ export default function LogRoom() {
 
               <p className="mb-4 text-[13px] leading-[1.9] text-text-secondary">
                 ここには、完成した答えよりも、
-                作る途中で見えたことを残していきます。
+                作る途中で見えたことや、
+                まだ言い切れない感覚を残していきます。
               </p>
+
+              <div className="mb-5 rounded-[20px] border border-white/10 bg-white/[0.03] p-4">
+                <p className="text-[10px] tracking-[0.2em] text-cyan-200/72 uppercase">
+                  ARCHIVE POLICY
+                </p>
+                <p className="mt-2 text-[12px] leading-[1.85] text-white/58">
+                  完成形だけを飾るのではなく、
+                  思考の途中経過や、試行錯誤の跡まで保管する。
+                </p>
+              </div>
 
               <div className="space-y-2">
                 {archiveNotes.map((note) => (
@@ -189,8 +206,9 @@ export default function LogRoom() {
         </div>
       </section>
 
+      {/* records */}
       <section className="relative z-[1] px-6 pb-24 md:px-10 xl:px-14">
-        <div className="mx-auto max-w-[1320px]">
+        <div className="mx-auto max-w-[1360px]">
           <div className="mb-6 flex items-center gap-3">
             <p className="text-[10.5px] tracking-[0.24em] text-white/62 uppercase">
               RECORD ENTRIES
@@ -200,7 +218,13 @@ export default function LogRoom() {
 
           <div className="grid gap-4 lg:grid-cols-2">
             {logEntries.map((entry) => (
-              <article key={entry.id} className="sg-card p-6 md:p-7">
+              <article
+                key={entry.id}
+                className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-[rgba(8,18,38,0.58)] p-6 backdrop-blur-[14px] transition-all duration-300 hover:border-white/16 hover:bg-[rgba(10,22,42,0.74)] hover:shadow-[0_22px_68px_-34px_rgba(255,255,255,0.18)] md:p-7"
+              >
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-[120px] bg-gradient-to-r from-cyan-300/8 to-transparent blur-2xl opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/16 to-transparent" />
+
                 <div className="mb-4 flex items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <span className="h-[5px] w-[5px] rounded-full bg-cyan-300 shadow-[0_0_10px_rgba(103,232,249,0.46)]" />
@@ -219,13 +243,22 @@ export default function LogRoom() {
                   </span>
                 </div>
 
-                <h2 className="mwb-3 text-[20px] font-light leading-[1.45] text-white/94 md:text-[22px]">
+                <h2 className="mb-3 text-[20px] font-light leading-[1.45] text-white/94 md:text-[22px]">
                   {entry.title}
                 </h2>
 
                 <p className="text-[14px] leading-[1.95] text-text-secondary">
                   {entry.summary}
                 </p>
+
+                <div className="mt-5 flex items-center justify-between border-t border-white/8 pt-4">
+                  <span className="text-[10px] tracking-[0.18em] text-white/28 uppercase">
+                    Archive Entry
+                  </span>
+                  <span className="text-[13px] text-white/18 transition-all duration-300 group-hover:translate-x-[3px] group-hover:text-white/46">
+                    →
+                  </span>
+                </div>
               </article>
             ))}
           </div>

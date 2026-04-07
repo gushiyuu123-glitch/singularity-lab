@@ -18,6 +18,10 @@ export default function AIRoomTemplate({ room }) {
     return room.title.split("—")[0].trim().toUpperCase();
   }, [room.title]);
 
+  const subTitle = useMemo(() => {
+    return room.title.split("—")[1]?.trim() || "";
+  }, [room.title]);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       if (coreWrapRef.current) {
@@ -270,7 +274,7 @@ export default function AIRoomTemplate({ room }) {
                   {room.badge}
                 </span>
                 <span className="h-px w-16 bg-gradient-to-r from-white/24 to-transparent" />
-                <span className="sg-meta">{room.version}</span>
+                <span className="sg-meta">{room.version || "CURRENT PROFILE"}</span>
               </div>
 
               <div className="relative max-w-[720px]">
@@ -286,7 +290,7 @@ export default function AIRoomTemplate({ room }) {
                     {room.title.split("—")[0].trim()}
                   </span>
                   <span className="sg-hero-title-spectrum mt-3 block text-[18px] font-medium tracking-[0.18em] md:text-[23px] xl:text-[27px]">
-                    {room.title.split("—")[1]?.trim() || ""}
+                    {subTitle}
                   </span>
                 </h1>
 
@@ -404,9 +408,7 @@ export default function AIRoomTemplate({ room }) {
                 <div className="sg-hud p-4">
                   <div className="mb-3 flex items-center justify-between">
                     <span className="sg-label-soft">CORE STATUS</span>
-                    <span className={`sg-meta ${room.theme.accentClass}`}>
-                      ONLINE
-                    </span>
+                    <span className={`sg-meta ${room.theme.accentClass}`}>ONLINE</span>
                   </div>
 
                   <div className="space-y-3 font-mono text-[11px] text-text-muted">
@@ -543,6 +545,43 @@ export default function AIRoomTemplate({ room }) {
           </div>
         </section>
       ))}
+
+      {/* =========================
+          IMPORTANT NOTES
+      ========================== */}
+      <section className="fade-sec relative z-[1] pb-24 pt-10 lg:pb-28">
+        <div className="container">
+          <div className="sg-card p-8 lg:p-10">
+            <div className="mb-6 flex items-center justify-between">
+              <p className="sg-label-soft">FINAL NOTES</p>
+              <span className="sg-meta">OPERATION GUIDE</span>
+            </div>
+
+            <h2 className="mb-7 text-[24px] font-medium tracking-[0.12em] text-white md:text-[28px]">
+              06｜重要メモ
+            </h2>
+
+            <div className="space-y-4">
+              {room.importantNotes.map((note, i) => (
+                <div
+                  key={i}
+                  className="rounded-[22px] border border-white/10 bg-white/[0.02] p-5"
+                >
+                  <div className="mb-3 flex items-center gap-3">
+                    <span className={`h-[5px] w-[5px] rounded-full ${room.theme.dotClass}`} />
+                    <span className="font-mono text-[10px] tracking-[0.16em] text-white/34">
+                      NOTE-{String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <p className="text-[14px] leading-[1.9] text-text-secondary">
+                    {note}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
