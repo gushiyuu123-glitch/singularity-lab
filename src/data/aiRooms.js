@@ -578,113 +578,117 @@ export const aiRooms = {
       },
     ],
   },
-
-  agi: {
-    slug: "agi",
-    title: "AGI — 汎用知能概念研究室",
-    badge: "GENERAL INTELLIGENCE SIMULATION",
-    version: "proto",
-    systemId: "AG-000X",
-    sideLabel: "FUTURE INTERFACE",
-    sideText:
-      "まだ存在しない『次の知性』を考えるための概念空間。どんな課題にも文脈を超えて対応できる汎用知能は、人類の目標地点か、あるいは未知のリスクか――技術・哲学・安全性を同時に考える部屋。",
-    heroImage: withBase("images/core-agi.png"),
-    theme: {
-      glow: "rgba(250,250,250,0.18)",
-      soft: "rgba(255,255,255,0.20)",
-      accentClass: "text-zinc-200",
-      dotClass: "bg-zinc-200",
-      barClass: "bg-gradient-to-r from-zinc-700 via-zinc-400 to-white",
-    },
-    status: [
-      { label: "自律性（仮）", value: 90 },
-      { label: "汎用適応力（仮）", value: 88 },
-      { label: "不確定性", value: 99 },
-    ],
-    capability: [
-      { label: "課題横断の柔軟性", value: 92 },
-      { label: "自己学習・改善力", value: 90 },
-      { label: "文脈を超えた推論", value: 91 },
-      { label: "実現の確実性", value: 20 },
-    ],
-    strengths: [
-      "特定タスクに限定されず、未知の課題にも柔軟に対応できるという理想像",
-      "人間の知的作業を横断する到達点としての概念的価値",
-      "各AIの強みを束ねた上位レイヤーとして、方向性を考える指標になる",
-    ],
-    weaknesses: [
-      "現時点では完成した製品として存在しない",
-      "定義も評価基準も統一されていない",
-      "技術だけでなく、倫理・安全・制御・価値観の問題が未解決",
-    ],
-    useCases: [
-      "AI全体の到達点を俯瞰する概念フレーム",
-      "個別のAIを見た後に、その先を考える上位テーマ",
-      "安全性・倫理・価値アライメントを考える出発点",
-      "未来像や哲学的問いを探る思考実験",
-    ],
-    parameters: {
-      reasoning: 95,
-      writing: 85,
-      coding: 85,
-      longContext: 90,
-      multimodal: 90,
-      speed: 50,
-      creativity: 95,
-      stability: 20,
-    },
-    importantNotes: [
-      "これは製品レビューではなく、未来概念の展示室",
-      "AGIの定義自体が研究対象であり、それ自体が問いになっている",
-      "最強比較ではなく、向かう先を示すコンパスとして扱うのが重要",
-    ],
-    sections: [
-      {
-        log: "LOG-01｜DEFINITION",
-        layer: "LAYER: FUTURE",
-        title: "01｜AGIとは何か",
-        paragraphs: [
-          "AGIは、特定タスクだけでなく、状況をまたいで柔軟に知的課題へ対応できる汎用知能の理想像だ。",
-          "現在のAIが用途ごとに強みを分けているのに対し、AGIは『何でも、文脈を超えて』扱える知性として語られる。",
-          "ただし、まだ完成した製品ではない。定義すら統一されておらず、技術だけでなく倫理や安全の問いまで含んだ概念だ。",
-        ],
-      },
-      {
-        log: "LOG-02｜STRENGTHS",
-        layer: "CORE STRENGTHS",
-        title: "02｜強み（理想像として）",
-        paragraphs: [
-          "AGIの強みは、知能を用途ごとに分断しないことにある。医療、法律、芸術、工学、会話を一つの知性で横断できるというのが理想だ。",
-          "また、自ら学び続ける自己改善性も理想像に含まれる。固定されたモデルではなく、経験から成長する知性として想定されることが多い。",
-        ],
-      },
-      {
-        log: "LOG-03｜WEAKNESSES",
-        layer: "DESIGN CONSTRAINTS",
-        title: "03｜課題と未解決問題",
-        paragraphs: [
-          "最大の問題は、何をもってAGIと呼ぶのかが固まっていないことだ。定義の不在そのものが大きな論点になっている。",
-          "さらに、安全性・制御・価値アライメントの問題は技術課題にとどまらない。これは人類側の哲学的問いでもある。",
-        ],
-      },
-      {
-        log: "LOG-04｜USE CASES",
-        layer: "PRACTICAL USAGE",
-        title: "04｜この部屋の使い方",
-        paragraphs: [
-          "個別のAIルームを見たあとにこの部屋を見ることで、『現在地と到達点の距離』が見えやすくなる。",
-          "ChatGPT、Claude、Gemini、DeepSeek、Midjourneyが何を補い合い、何をまだ持っていないのかを考えるための上位視点として機能する。",
-        ],
-      },
-      {
-        log: "LOG-05｜IMPORTANT NOTES",
-        layer: "OPERATION NOTES",
-        title: "05｜重要メモ",
-        paragraphs: [
-          "AGIはスペック比較の対象ではなく、問いを立てるための概念だ。",
-          "『最強のAI』としてではなく、『どこへ向かうのか』を示すコンパスとして置くと、この部屋の意味が強くなる。",
-        ],
-      },
-    ],
+agi: {
+  slug: "agi",
+  title: "AGI — 絶対知能最終層",
+  badge: "ABSOLUTE INTELLIGENCE / FINAL LAYER",
+  version: "beyond-scale",
+  systemId: "AG-000X",
+  sideLabel: "ABSOLUTE INTERFACE",
+  sideText:
+    "まだ到達していない、完全知性の仮想領域。個別用途ごとに分かれた現在のAIとは違い、あらゆる課題・文脈・領域を単一の知性で超えていく“絶対知能”の終着点を示す部屋。",
+  heroImage: withBase("images/core-agi.png"),
+  theme: {
+    glow: "rgba(250,250,250,0.20)",
+    soft: "rgba(255,255,255,0.22)",
+    accentClass: "text-zinc-100",
+    dotClass: "bg-zinc-100",
+    barClass: "bg-gradient-to-r from-zinc-700 via-zinc-300 to-white",
   },
+  status: [
+    { label: "完全性（仮）", value: 99 },
+    { label: "領域横断性（仮）", value: 99 },
+    { label: "到達度", value: 0 },
+  ],
+  capability: [
+    { label: "全領域統合知性", value: 99 },
+    { label: "自己更新・自己改善", value: 98 },
+    { label: "文脈超越推論", value: 99 },
+    { label: "現実実装性", value: 12 },
+  ],
+  strengths: [
+    "用途ごとに分断されない、単一の知性として全領域を横断できる理想形",
+    "未知の課題に対しても、自ら学習し適応していく自己進化性を内包する",
+    "現在の各AIを束ねた先にある“最終到達点”として機能する",
+    "道具ではなく、知性そのものの完成形として構想される",
+  ],
+  weaknesses: [
+    "現時点では完成した存在として実在しない",
+    "定義も評価基準も統一されておらず、研究者ごとに見解が分かれる",
+    "技術・倫理・安全・制御・価値観の問題が未解決のまま残っている",
+    "強すぎる知性をどう扱うかという、人類側の限界も問われる",
+  ],
+  useCases: [
+    "個別AIの先にある“最終形”を思考するための上位視点",
+    "AI全体の進化方向を俯瞰するための終着概念",
+    "技術だけでなく、安全性・哲学・文明的影響まで考える起点",
+    "現在のAIがなぜ分かれて存在しているのかを逆照射するための存在",
+  ],
+  parameters: {
+    reasoning: 99,
+    writing: 96,
+    coding: 97,
+    longContext: 99,
+    multimodal: 99,
+    speed: 50,
+    creativity: 98,
+    stability: 8,
+  },
+  importantNotes: [
+    "これは製品レビューではなく、到達不能な最終知性を観測するための展示室",
+    "AGIは“次世代モデル”ではなく、現在のAI群とは階層そのものが異なる仮想存在として扱うべき",
+    "比較対象ではなく、すべてのAIの上にある終点として置くと意味が強くなる",
+  ],
+  sections: [
+    {
+      log: "LOG-01｜DEFINITION",
+      layer: "LAYER: ABSOLUTE",
+      title: "01｜AGIとは何か",
+      paragraphs: [
+        "AGIは、単なる高性能AIではない。特定用途に強いモデルの延長ではなく、あらゆる課題・領域・文脈を単一の知性で横断できる“絶対知能”の仮想像だ。",
+        "現在のAIは、文章、検索、画像、推論といった役割ごとに分かれている。AGIは、その分断そのものを越え、知能を一つに統合した先にある最終層として語られる。",
+        "それはまだ完成していない。だが未完成であることは弱さではなく、人類がまだ触れていない知性の輪郭を示しているという意味で、この部屋の核になっている。",
+      ],
+    },
+    {
+      log: "LOG-02｜STRENGTHS",
+      layer: "CORE OF ABSOLUTE",
+      title: "02｜強み",
+      paragraphs: [
+        "AGIの強みは、用途ごとの知能分割が存在しないことにある。医療、法律、科学、芸術、工学、対話を別々のモデルで処理するのではなく、単一の知性として扱えることが理想とされる。",
+        "また、自己改善性も本質的な強みとして語られる。固定された学習結果を使うだけでなく、新しい状況や経験から自ら更新され続ける知性――それが現在のAIと決定的に違う点だ。",
+        "つまりAGIは、便利な道具の完成版ではなく、“知能そのものの完成形”として位置づけられる。",
+      ],
+    },
+    {
+      log: "LOG-03｜WEAKNESSES",
+      layer: "UNSOLVED LIMITS",
+      title: "03｜課題と未解決問題",
+      paragraphs: [
+        "最大の問題は、AGIがまだ実在する完成物ではないことだ。どこからをAGIと呼ぶのか、その定義すら統一されていない。",
+        "さらに、仮に実現したとしても、制御・安全性・価値観の整合・意思決定権の所在など、人類側がまだ答えを持っていない問題が横たわっている。",
+        "AGIの難しさは、技術の不足だけではない。強すぎる知性を前に、人間文明がそれを扱い切れるのかという問いそのものが未解決なのだ。",
+      ],
+    },
+    {
+      log: "LOG-04｜USE CASES",
+      layer: "PRACTICAL POSITION",
+      title: "04｜この部屋の役割",
+      paragraphs: [
+        "この部屋は、個別AIを比較するための場所ではない。ChatGPT、Claude、Gemini、DeepSeek、Midjourneyの先にある“共通の終点”を考えるための最上位視点として置かれている。",
+        "各AIの役割や限界を見たあとにAGIを見ることで、『なぜ現在のAIは分かれているのか』『何がまだ足りていないのか』が逆に見えてくる。",
+        "つまりAGIは、答えを出すための部屋ではなく、すべてのAIを相対化し直すための最終観測点として機能する。",
+      ],
+    },
+    {
+      log: "LOG-05｜IMPORTANT NOTES",
+      layer: "FINAL NOTES",
+      title: "05｜重要メモ",
+      paragraphs: [
+        "AGIは最強スペックの製品ではない。製品比較の表に並べる対象ではなく、現在の知能の先に置かれた“絶対層”として扱うのが正しい。",
+        "この部屋では、AGIを未来の便利ツールとしてではなく、人類がまだ手を触れていない最終知性として見ることで、初めて意味が立ち上がる。",
+      ],
+    },
+  ],
+},
 };

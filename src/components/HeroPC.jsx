@@ -336,11 +336,7 @@ function HeroLeft({ panelRef }) {
 
       {/* CTAボタン */}
       <div className="mt-8 flex items-center gap-5">
-           <div className="text-[12px] leading-[1.84] text-white/44 tracking-[0.02em]">
-  観測したことや思考を、
-  <br />
-  ここに記録しています。
-</div>
+        
         <EnterButton />
 
       </div>

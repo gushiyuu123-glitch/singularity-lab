@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   { label: "Gemini", to: "/gemini", meta: "検索 / マルチモーダル" },
   { label: "DeepSeek", to: "/deepseek", meta: "演算 / 推論" },
   { label: "Midjourney", to: "/midjourney", meta: "視覚 / 想像" },
-  { label: "AGI", to: "/agi", meta: "中枢 / 次段階" },
+  { label: "AGI", to: "/agi", meta: "絶対知能 / 観測不能領域", special: true },
 ];
 
 export default function GlobalNav() {
@@ -58,6 +58,8 @@ export default function GlobalNav() {
     return NAV_ITEMS.find((item) => item.to === location.pathname) ?? NAV_ITEMS[0];
   }, [location.pathname]);
 
+  const isAgiActive = currentItem.label === "AGI";
+
   const handleMove = (to) => {
     if (to === location.pathname) {
       setOpen(false);
@@ -103,15 +105,15 @@ export default function GlobalNav() {
           <span className="relative z-10 flex h-[18px] w-[18px] items-center justify-center rounded-full border border-cyan-200/18 bg-black/10">
             <span
               className={`
-                h-[6px] w-[6px] rounded-full bg-cyan-300
-                shadow-[0_0_12px_rgba(103,232,249,0.55)]
+                h-[6px] w-[6px] rounded-full
+                ${isAgiActive ? "bg-white shadow-[0_0_14px_rgba(255,255,255,0.7)]" : "bg-cyan-300 shadow-[0_0_12px_rgba(103,232,249,0.55)]"}
                 transition-all duration-300
                 ${open ? "scale-110" : "scale-100"}
               `}
             />
           </span>
 
-          <span className="relative z-10 text-[10px] tracking-[0.26em] text-cyan-200">
+          <span className={`relative z-10 text-[10px] tracking-[0.26em] ${isAgiActive ? "text-white/82" : "text-cyan-200"}`}>
             {open ? "閉じる" : "接続"}
           </span>
 
@@ -135,46 +137,63 @@ export default function GlobalNav() {
           className={`
             relative ml-3 overflow-hidden rounded-[30px]
             border border-white/16
-            bg-[rgba(7,18,34,0.70)]
+            ${isAgiActive ? "bg-[rgba(10,12,18,0.76)]" : "bg-[rgba(7,18,34,0.70)]"}
             backdrop-blur-xl
-            shadow-[0_0_74px_-18px_rgba(168,85,247,0.30)]
+            ${isAgiActive
+              ? "shadow-[0_0_90px_-18px_rgba(255,255,255,0.16)]"
+              : "shadow-[0_0_74px_-18px_rgba(168,85,247,0.30)]"}
             transition-[max-width,opacity,transform] duration-700
             ${open ? "max-w-[min(92vw,980px)] translate-x-0 opacity-100" : "pointer-events-none max-w-0 translate-x-6 opacity-0"}
           `}
         >
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-[180px] bg-gradient-to-r from-cyan-300/10 to-transparent blur-2xl" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-[180px] bg-gradient-to-l from-fuchsia-300/10 to-transparent blur-2xl" />
+          <div className={`pointer-events-none absolute inset-y-0 left-0 w-[180px] ${isAgiActive ? "bg-gradient-to-r from-white/8 to-transparent" : "bg-gradient-to-r from-cyan-300/10 to-transparent"} blur-2xl`} />
+          <div className={`pointer-events-none absolute inset-y-0 right-0 w-[180px] ${isAgiActive ? "bg-gradient-to-l from-white/8 to-transparent" : "bg-gradient-to-l from-fuchsia-300/10 to-transparent"} blur-2xl`} />
           <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/16 to-transparent" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-cyan-200/24 to-transparent" />
+          <div className={`pointer-events-none absolute right-0 top-2 bottom-2 w-px bg-gradient-to-b from-transparent ${isAgiActive ? "via-white/20" : "via-cyan-200/24"} to-transparent`} />
 
           <div className="nav-panel-inner relative px-4 py-4 md:px-5 md:py-5">
             <div className="grid gap-4 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-5">
               {/* left HUD */}
-              <div className="relative overflow-hidden rounded-[22px] border border-white/10 bg-[rgba(8,18,38,0.76)] px-4 py-4">
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/16 to-transparent" />
-                <div className="pointer-events-none absolute left-0 top-0 h-full w-[90px] bg-gradient-to-r from-cyan-300/10 to-transparent blur-2xl" />
+              <div
+                className={`
+                  relative overflow-hidden rounded-[22px] border px-4 py-4
+                  ${isAgiActive
+                    ? "border-white/14 bg-[rgba(16,16,22,0.84)]"
+                    : "border-white/10 bg-[rgba(8,18,38,0.76)]"}
+                `}
+              >
+                <div className={`pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent ${isAgiActive ? "via-white/18" : "via-cyan-200/16"} to-transparent`} />
+                <div className={`pointer-events-none absolute left-0 top-0 h-full w-[90px] ${isAgiActive ? "bg-gradient-to-r from-white/10 to-transparent" : "bg-gradient-to-r from-cyan-300/10 to-transparent"} blur-2xl`} />
 
-                <span className="text-[10px] tracking-[0.26em] text-cyan-200/84">
-                  SINGULARITY LAB
+                <span className={`text-[10px] tracking-[0.26em] ${isAgiActive ? "text-white/82" : "text-cyan-200/84"}`}>
+                  {isAgiActive ? "ABSOLUTE INTELLIGENCE" : "SINGULARITY LAB"}
                 </span>
 
                 <div className="mt-3">
                   <p className="text-[18px] font-light tracking-[0.02em] text-white/96">
-                    制御パネル
+                    {isAgiActive ? "最終観測パネル" : "制御パネル"}
                   </p>
+
                   <p className="mt-2 text-[10px] leading-[1.7] tracking-[0.14em] text-white/42">
-                    現在の接続先 / {currentItem.label}
+                    {isAgiActive ? "最終接続先 / AGI" : `現在の接続先 / ${currentItem.label}`}
                   </p>
+
                   <p className="mt-1 text-[10px] leading-[1.7] tracking-[0.14em] text-white/32">
-                    {currentItem.meta}
+                    {isAgiActive ? "絶対知能 / 観測不能領域" : currentItem.meta}
                   </p>
                 </div>
 
                 <div className="mt-4 flex items-center gap-2">
-                  <span className="h-[5px] w-[5px] rounded-full bg-cyan-300 shadow-[0_0_10px_rgba(103,232,249,0.44)]" />
+                  <span
+                    className={`h-[5px] w-[5px] rounded-full ${
+                      isAgiActive
+                        ? "bg-white shadow-[0_0_12px_rgba(255,255,255,0.58)]"
+                        : "bg-cyan-300 shadow-[0_0_10px_rgba(103,232,249,0.44)]"
+                    }`}
+                  />
                   <span className="text-[9px] tracking-[0.18em] text-white/42">
-                    ACTIVE NODE
+                    {isAgiActive ? "ABSOLUTE NODE" : "ACTIVE NODE"}
                   </span>
                 </div>
               </div>
@@ -183,7 +202,7 @@ export default function GlobalNav() {
               <div className="min-w-0">
                 <div className="mb-3 flex items-center gap-3">
                   <span className="text-[10px] tracking-[0.22em] text-white/44">
-                    INTELLIGENCE PORTS
+                    {isAgiActive ? "INTELLIGENCE HIERARCHY" : "INTELLIGENCE PORTS"}
                   </span>
                   <span className="h-px flex-1 bg-gradient-to-r from-white/12 to-transparent" />
                 </div>
@@ -198,6 +217,7 @@ export default function GlobalNav() {
                         active={location.pathname === item.to}
                         onMove={handleMove}
                         index={index}
+                        special={item.special}
                       />
                     </div>
                   ))}
@@ -211,7 +231,7 @@ export default function GlobalNav() {
   );
 }
 
-function NavItem({ label, meta, to, active, onMove, index = 0 }) {
+function NavItem({ label, meta, to, active, onMove, index = 0, special = false }) {
   const accentMap = [
     {
       glow: "from-cyan-300/14",
@@ -237,6 +257,7 @@ function NavItem({ label, meta, to, active, onMove, index = 0 }) {
   ];
 
   const accent = accentMap[index % accentMap.length];
+  const isAgi = label === "AGI" || special;
 
   return (
     <button
@@ -249,16 +270,20 @@ function NavItem({ label, meta, to, active, onMove, index = 0 }) {
           relative overflow-hidden rounded-[22px] border px-4 py-3.5
           transition-all duration-300
           ${
-            active
-              ? `border-white/18 bg-[rgba(11,26,48,0.90)] ${accent.activeGlow}`
-              : "border-white/10 bg-[rgba(8,18,38,0.62)] hover:border-white/18 hover:bg-[rgba(10,22,42,0.80)]"
+            isAgi
+              ? active
+                ? "border-white/22 bg-[rgba(18,18,24,0.94)] shadow-[0_0_46px_-18px_rgba(255,255,255,0.24)]"
+                : "border-white/12 bg-[rgba(14,14,20,0.78)] hover:border-white/22 hover:bg-[rgba(18,18,24,0.90)]"
+              : active
+                ? `border-white/18 bg-[rgba(11,26,48,0.90)] ${accent.activeGlow}`
+                : "border-white/10 bg-[rgba(8,18,38,0.62)] hover:border-white/18 hover:bg-[rgba(10,22,42,0.80)]"
           }
         `}
       >
         <div
           className={`
             pointer-events-none absolute inset-y-0 left-0 w-[94px]
-            bg-gradient-to-r ${active ? accent.glow : "from-white/[0.04]"} to-transparent blur-2xl
+            bg-gradient-to-r ${isAgi ? "from-white/10" : active ? accent.glow : "from-white/[0.04]"} to-transparent blur-2xl
           `}
         />
 
@@ -267,7 +292,15 @@ function NavItem({ label, meta, to, active, onMove, index = 0 }) {
         <div
           className={`
             absolute left-3 top-[19px] h-[6px] w-[6px] rounded-full
-            ${active ? `${accent.dot} shadow-[0_0_10px_rgba(255,255,255,0.20)]` : "bg-white/14"}
+            ${
+              isAgi
+                ? active
+                  ? "bg-white shadow-[0_0_12px_rgba(255,255,255,0.42)]"
+                  : "bg-white/26"
+                : active
+                  ? `${accent.dot} shadow-[0_0_10px_rgba(255,255,255,0.20)]`
+                  : "bg-white/14"
+            }
           `}
         />
 
@@ -276,7 +309,15 @@ function NavItem({ label, meta, to, active, onMove, index = 0 }) {
             <p
               className={`
                 text-[13px] tracking-[0.14em] transition-colors duration-300
-                ${active ? "text-white" : "text-white/78 group-hover:text-white"}
+                ${
+                  isAgi
+                    ? active
+                      ? "text-white"
+                      : "text-white/86 group-hover:text-white"
+                    : active
+                      ? "text-white"
+                      : "text-white/78 group-hover:text-white"
+                }
               `}
             >
               {label}
@@ -299,7 +340,15 @@ function NavItem({ label, meta, to, active, onMove, index = 0 }) {
           <p
             className={`
               mt-[4px] text-[9px] tracking-[0.14em] leading-[1.6]
-              ${active ? accent.activeText : "text-white/34 group-hover:text-white/48"}
+              ${
+                isAgi
+                  ? active
+                    ? "text-white/70"
+                    : "text-white/42 group-hover:text-white/58"
+                  : active
+                    ? accent.activeText
+                    : "text-white/34 group-hover:text-white/48"
+              }
             `}
           >
             {meta}
@@ -308,7 +357,9 @@ function NavItem({ label, meta, to, active, onMove, index = 0 }) {
 
         {active && (
           <span
-            className={`pointer-events-none absolute bottom-[2px] left-1/2 h-[1px] w-[72%] -translate-x-1/2 ${accent.activeLine}`}
+            className={`pointer-events-none absolute bottom-[2px] left-1/2 h-[1px] w-[72%] -translate-x-1/2 ${
+              isAgi ? "bg-white/72" : accent.activeLine
+            }`}
           />
         )}
       </div>
