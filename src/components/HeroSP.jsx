@@ -426,12 +426,12 @@ export default function HeroSP() {
               >
                 Origin
               </p>
-              <p
-                className="mt-[5px] text-[11px] tracking-[0.14em]"
-                style={{ opacity: 0.86 }}
-              >
-                創造の源へ
-              </p>
+<p
+  className="mt-[5px] text-[11px] tracking-[0.14em]"
+  style={{ opacity: 0.86 }}
+>
+  記憶の扉を開く
+</p>
             </div>
           </a>
 

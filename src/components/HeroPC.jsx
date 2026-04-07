@@ -136,12 +136,12 @@ export default function HeroPC() {
             >
               Origin
             </p>
-            <p
-              className="mt-[6px] text-[13px] tracking-[0.18em] transition-all duration-500 group-hover:tracking-[0.24em]"
-              style={{ opacity: 0.84 }}
-            >
-              創造の源へ
-            </p>
+     <p
+  className="mt-[6px] text-[13px] tracking-[0.18em] transition-all duration-500 group-hover:tracking-[0.24em]"
+  style={{ opacity: 0.84 }}
+>
+  過去への扉を開く
+</p>
           </div>
         </a>
       </div>
