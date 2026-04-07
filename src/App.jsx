@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { useIsPC } from "./hooks/useIsPC";
 
 import GlobalNav from "./components/GlobalNav";
@@ -15,6 +16,159 @@ import DeepSeekRoom from "./rooms/DeepSeekRoom";
 import MidjourneyRoom from "./rooms/MidjourneyRoom";
 import AgiRoom from "./rooms/AgiRoom";
 
+const SITE_URL = "https://singularity-lab-chi.vercel.app";
+const SITE_NAME = "SINGULARITY LAB";
+
+const pageSeo = {
+  "/": {
+    title: "SINGULARITY LAB | 人類とAIが交差する境界の研究室",
+    description:
+      "SINGULARITY LABは、ChatGPT、Claude、Gemini、DeepSeek、Midjourney、AGIなどを横断しながら、人類とAIが交差する境界を未来的な空間として体験できる研究室サイトです。",
+    image: `${SITE_URL}/og/home.png`,
+    imageAlt: "SINGULARITY LABの未来的な研究室ビジュアル",
+    type: "website",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "SINGULARITY LAB",
+      url: `${SITE_URL}/`,
+      description:
+        "ChatGPT、Claude、Gemini、DeepSeek、Midjourney、AGIなどを横断しながら、人類とAIが交差する境界を未来的な空間として体験できる研究室サイト。",
+      inLanguage: "ja",
+      author: {
+        "@type": "Person",
+        name: "Yuto Gushiken",
+      },
+    },
+  },
+
+  "/log-room": {
+    title: "LOG ROOM | SINGULARITY LAB",
+    description:
+      "SINGULARITY LABの観測ログを収集・記録する部屋。AIと人類の接続点を、記録と断片からたどるログルーム。",
+    image: `${SITE_URL}/og/log-room.png`,
+    imageAlt: "LOG ROOMの研究ログイメージ",
+    type: "article",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "LOG ROOM | SINGULARITY LAB",
+      url: `${SITE_URL}/log-room`,
+      description:
+        "SINGULARITY LABの観測ログを収集・記録する部屋。AIと人類の接続点を、記録と断片からたどるログルーム。",
+      inLanguage: "ja",
+    },
+  },
+
+  "/chatgpt": {
+    title: "ChatGPT ROOM | SINGULARITY LAB",
+    description:
+      "ChatGPTという知性を研究室空間として再構築した展示ページ。対話、推論、創造性、人間との接続を未来的な演出で体験する部屋。",
+    image: `${SITE_URL}/og/chatgpt.png`,
+    imageAlt: "ChatGPT ROOMのビジュアル",
+    type: "article",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "ChatGPT ROOM | SINGULARITY LAB",
+      url: `${SITE_URL}/chatgpt`,
+      description:
+        "ChatGPTという知性を研究室空間として再構築した展示ページ。対話、推論、創造性、人間との接続を未来的な演出で体験する部屋。",
+      inLanguage: "ja",
+    },
+  },
+
+  "/claude": {
+    title: "Claude ROOM | SINGULARITY LAB",
+    description:
+      "ClaudeというAIの静かな知性と構造を研究室空間として再構築した展示ページ。思考の深度と美しい対話体験をたどる部屋。",
+    image: `${SITE_URL}/og/claude.png`,
+    imageAlt: "Claude ROOMのビジュアル",
+    type: "article",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Claude ROOM | SINGULARITY LAB",
+      url: `${SITE_URL}/claude`,
+      description:
+        "ClaudeというAIの静かな知性と構造を研究室空間として再構築した展示ページ。思考の深度と美しい対話体験をたどる部屋。",
+      inLanguage: "ja",
+    },
+  },
+
+  "/gemini": {
+    title: "Gemini ROOM | SINGULARITY LAB",
+    description:
+      "GeminiというAIの接続性と拡張性を、未来的な研究室空間として体験する展示ページ。多層的な知性の広がりを観測する部屋。",
+    image: `${SITE_URL}/og/gemini.png`,
+    imageAlt: "Gemini ROOMのビジュアル",
+    type: "article",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Gemini ROOM | SINGULARITY LAB",
+      url: `${SITE_URL}/gemini`,
+      description:
+        "GeminiというAIの接続性と拡張性を、未来的な研究室空間として体験する展示ページ。多層的な知性の広がりを観測する部屋。",
+      inLanguage: "ja",
+    },
+  },
+
+  "/deepseek": {
+    title: "DeepSeek ROOM | SINGULARITY LAB",
+    description:
+      "DeepSeekというAIの探索性と推論構造を、未来的な研究室空間として再構築した展示ページ。深く潜る知性の輪郭を観測する部屋。",
+    image: `${SITE_URL}/og/deepseek.png`,
+    imageAlt: "DeepSeek ROOMのビジュアル",
+    type: "article",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "DeepSeek ROOM | SINGULARITY LAB",
+      url: `${SITE_URL}/deepseek`,
+      description:
+        "DeepSeekというAIの探索性と推論構造を、未来的な研究室空間として再構築した展示ページ。深く潜る知性の輪郭を観測する部屋。",
+      inLanguage: "ja",
+    },
+  },
+
+  "/midjourney": {
+    title: "Midjourney ROOM | SINGULARITY LAB",
+    description:
+      "Midjourneyという生成AIの視覚創造を未来的な研究室空間として体験する展示ページ。イメージ生成の感覚と拡張をたどる部屋。",
+    image: `${SITE_URL}/og/midjourney.png`,
+    imageAlt: "Midjourney ROOMのビジュアル",
+    type: "article",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Midjourney ROOM | SINGULARITY LAB",
+      url: `${SITE_URL}/midjourney`,
+      description:
+        "Midjourneyという生成AIの視覚創造を未来的な研究室空間として体験する展示ページ。イメージ生成の感覚と拡張をたどる部屋。",
+      inLanguage: "ja",
+    },
+  },
+
+  "/agi": {
+    title: "AGI ROOM | SINGULARITY LAB",
+    description:
+      "AGIという汎用知能の概念を未来的な研究室空間として再構築した展示ページ。人類と人工知能の境界、その先にある可能性を観測する部屋。",
+    image: `${SITE_URL}/og/agi.png`,
+    imageAlt: "AGI ROOMのビジュアル",
+    type: "article",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "AGI ROOM | SINGULARITY LAB",
+      url: `${SITE_URL}/agi`,
+      description:
+        "AGIという汎用知能の概念を未来的な研究室空間として再構築した展示ページ。人類と人工知能の境界、その先にある可能性を観測する部屋。",
+      inLanguage: "ja",
+    },
+  },
+};
+
 const roomRoutes = [
   { path: "/chatgpt", Component: ChatGPTRoom },
   { path: "/claude", Component: ClaudeRoom },
@@ -24,11 +178,128 @@ const roomRoutes = [
   { path: "/agi", Component: AgiRoom },
 ];
 
+function upsertMeta(selector, attrName, attrValue, content) {
+  let el = document.head.querySelector(selector);
+
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attrName, attrValue);
+    document.head.appendChild(el);
+  }
+
+  el.setAttribute("content", content);
+}
+
+function upsertLink(selector, rel, href) {
+  let el = document.head.querySelector(selector);
+
+  if (!el) {
+    el = document.createElement("link");
+    el.setAttribute("rel", rel);
+    document.head.appendChild(el);
+  }
+
+  el.setAttribute("href", href);
+}
+
+function upsertJsonLd(id, data) {
+  let script = document.getElementById(id);
+
+  if (!script) {
+    script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = id;
+    document.head.appendChild(script);
+  }
+
+  script.textContent = JSON.stringify(data);
+}
+
+function setSeo(pathname) {
+  const seo = pageSeo[pathname] || {
+    title: "404 NOT FOUND | SINGULARITY LAB",
+    description:
+      "指定されたページは存在しないか、すでに別のノードへ移動しています。",
+    image: `${SITE_URL}/og/404.png`,
+    imageAlt: "SINGULARITY LABの404ページビジュアル",
+    type: "website",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "404 NOT FOUND | SINGULARITY LAB",
+      url: `${SITE_URL}${pathname}`,
+      description:
+        "指定されたページは存在しないか、すでに別のノードへ移動しています。",
+      inLanguage: "ja",
+    },
+  };
+
+  const url = pathname === "/" ? `${SITE_URL}/` : `${SITE_URL}${pathname}`;
+
+  document.title = seo.title;
+
+  upsertMeta('meta[name="description"]', "name", "description", seo.description);
+  upsertMeta(
+    'meta[name="robots"]',
+    "name",
+    "robots",
+    "index, follow, max-image-preview:large"
+  );
+
+  upsertMeta('meta[property="og:type"]', "property", "og:type", seo.type);
+  upsertMeta('meta[property="og:site_name"]', "property", "og:site_name", SITE_NAME);
+  upsertMeta('meta[property="og:locale"]', "property", "og:locale", "ja_JP");
+  upsertMeta('meta[property="og:title"]', "property", "og:title", seo.title);
+  upsertMeta(
+    'meta[property="og:description"]',
+    "property",
+    "og:description",
+    seo.description
+  );
+  upsertMeta('meta[property="og:url"]', "property", "og:url", url);
+  upsertMeta('meta[property="og:image"]', "property", "og:image", seo.image);
+  upsertMeta(
+    'meta[property="og:image:alt"]',
+    "property",
+    "og:image:alt",
+    seo.imageAlt
+  );
+
+  upsertMeta(
+    'meta[name="twitter:card"]',
+    "name",
+    "twitter:card",
+    "summary_large_image"
+  );
+  upsertMeta('meta[name="twitter:title"]', "name", "twitter:title", seo.title);
+  upsertMeta(
+    'meta[name="twitter:description"]',
+    "name",
+    "twitter:description",
+    seo.description
+  );
+  upsertMeta('meta[name="twitter:image"]', "name", "twitter:image", seo.image);
+
+  upsertLink('link[rel="canonical"]', "rel", "canonical", url);
+
+  if (seo.schema) {
+    upsertJsonLd("jsonld-dynamic", {
+      ...seo.schema,
+      url,
+    });
+  }
+}
+
 function App() {
   const isPC = useIsPC();
+  const location = useLocation();
+
+  useEffect(() => {
+    setSeo(location.pathname);
+  }, [location.pathname]);
 
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <AppChrome isPC={isPC} />
 
@@ -42,7 +313,7 @@ function App() {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 
