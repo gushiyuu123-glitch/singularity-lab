@@ -299,9 +299,9 @@ export default function HeroSP() {
 
             <div className="mt-6 flex items-center gap-3">
               <EnterButtonSP />
-              <div className="text-[10.5px] leading-[1.7] text-white/42">
-                気になるAIから見ていけます。
-              </div>
+          <div className="text-[10.5px] leading-[1.7] text-white/42">
+  記録室へ入れます。
+</div>
             </div>
           </div>
         </div>
