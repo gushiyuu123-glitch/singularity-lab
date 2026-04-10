@@ -53,10 +53,8 @@ export default function HeroPC() {
       ref={rootRef}
       className="relative hidden h-screen w-full overflow-hidden bg-[#020611] md:block"
     >
-      {/* 背景 */}
       <SceneBG />
 
-      {/* WebGL */}
       <div className="absolute inset-0 z-[2] opacity-[0.88]">
         <Canvas camera={{ position: [0, 0, 9], fov: 46 }} gl={{ antialias: true, alpha: false }} dpr={[1, 2]}>
           <Suspense fallback={null}>
@@ -73,7 +71,6 @@ export default function HeroPC() {
         </Canvas>
       </div>
 
-      {/* スキャンライン */}
       <div
         ref={scanRef}
         className="pointer-events-none absolute inset-x-0 z-[8]"
@@ -82,7 +79,6 @@ export default function HeroPC() {
         <div className="h-full bg-gradient-to-r from-transparent via-cyan-300/18 to-transparent" />
       </div>
 
-      {/* ロゴ */}
       <div ref={logoRef} className="absolute left-10 top-8 z-[20]">
         <img
           src={logo}
@@ -91,7 +87,6 @@ export default function HeroPC() {
         />
       </div>
 
-      {/* UI */}
       <div className="relative z-[10] mx-auto flex h-full w-full max-w-[1460px] items-center px-10">
         <div className="grid w-full grid-cols-[minmax(0,1.15fr)_minmax(400px,0.85fr)] items-center gap-10">
           <div ref={leftRef}>
@@ -103,7 +98,6 @@ export default function HeroPC() {
         </div>
       </div>
 
-      {/* ORIGIN LINK — 左下 */}
       <div className="fixed bottom-8 left-10 z-[40]">
         <a
           href="https://origin-gray.vercel.app/"
@@ -136,17 +130,16 @@ export default function HeroPC() {
             >
               Origin
             </p>
-     <p
-  className="mt-[6px] text-[13px] tracking-[0.18em] transition-all duration-500 group-hover:tracking-[0.24em]"
-  style={{ opacity: 0.84 }}
->
-  過去への扉を開く
-</p>
+            <p
+              className="mt-[6px] text-[13px] tracking-[0.18em] transition-all duration-500 group-hover:tracking-[0.24em]"
+              style={{ opacity: 0.84 }}
+            >
+              過去への扉を開く
+            </p>
           </div>
         </a>
       </div>
 
-      {/* GUSHIKEN DESIGN LINK — 右下 */}
       <div className="fixed bottom-8 right-10 z-[40]">
         <a
           href="https://gushikendesign.com/"
@@ -189,17 +182,12 @@ export default function HeroPC() {
         </a>
       </div>
 
-      {/* 前面縦光 */}
       <div className="pointer-events-none absolute left-1/2 top-[8%] z-[12] h-[82%] w-[180px] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,rgba(170,240,255,0.06)_0%,rgba(170,240,255,0.02)_32%,transparent_72%)] blur-[18px]" />
-      {/* 底部フェード */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[12] h-[26%] bg-gradient-to-t from-[#020611] to-transparent" />
     </section>
   );
 }
 
-/* ─────────────────────────────────────────────────────────
-   背景
-───────────────────────────────────────────────────────── */
 function SceneBG() {
   return (
     <div className="absolute inset-0">
@@ -210,10 +198,8 @@ function SceneBG() {
         className="h-full w-full object-cover scale-[1.08] opacity-[0.10]"
       />
 
-      {/* グラデーション */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_68%_54%_at_54%_42%,rgba(64,190,255,0.13),transparent_58%),radial-gradient(ellipse_48%_34%_at_52%_18%,rgba(255,255,255,0.04),transparent_50%),radial-gradient(ellipse_42%_34%_at_58%_76%,rgba(197,118,255,0.07),transparent_54%),linear-gradient(180deg,rgba(1,4,10,0.22)_0%,rgba(2,8,20,0.72)_44%,rgba(1,3,10,0.98)_100%)]" />
 
-      {/* グリッド（大） */}
       <div
         className="absolute inset-0 opacity-[0.048] mix-blend-screen"
         style={{
@@ -225,7 +211,6 @@ function SceneBG() {
         }}
       />
 
-      {/* グリッド（細） */}
       <div
         className="absolute inset-0 opacity-[0.020] mix-blend-screen"
         style={{
@@ -237,13 +222,10 @@ function SceneBG() {
         }}
       />
 
-      {/* センター縦線 */}
       <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-cyan-200/14 to-transparent" />
 
-      {/* 左グラデーション */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-[54%] bg-[linear-gradient(90deg,rgba(2,6,17,0.84)_0%,rgba(2,6,17,0.66)_36%,rgba(2,6,17,0.20)_76%,transparent_100%)]" />
 
-      {/* アクセントドット */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {[
           { l: "10%", t: "14%", c: "bg-cyan-300", s: "h-[10px] w-[10px]", d: "0s" },
@@ -261,7 +243,6 @@ function SceneBG() {
         ))}
       </div>
 
-      {/* SVGノイズ */}
       <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.022]" aria-hidden="true">
         <filter id="fn">
           <feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="4" stitchTiles="stitch" />
@@ -273,13 +254,9 @@ function SceneBG() {
   );
 }
 
-/* ─────────────────────────────────────────────────────────
-   左カラム
-───────────────────────────────────────────────────────── */
 function HeroLeft({ panelRef }) {
   return (
     <div className="relative z-[14] pl-2">
-      {/* ラベル行 */}
       <div className="mb-6 flex items-center gap-4">
         <span className="flex items-center gap-2">
           <span className="h-[5px] w-[5px] rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.9)] animate-pulse" />
@@ -293,7 +270,6 @@ function HeroLeft({ panelRef }) {
         </span>
       </div>
 
-      {/* タイトル */}
       <div className="relative max-w-[760px]">
         <div className="pointer-events-none absolute -left-2 top-[-22px] select-none text-[96px] font-black uppercase leading-none tracking-[0.10em] text-white/[0.028] blur-[1.5px]">
           SINGULARITY
@@ -319,29 +295,22 @@ function HeroLeft({ panelRef }) {
         </div>
       </div>
 
-      {/* 本文 */}
       <p className="max-w-[620px] text-[14.5px] leading-[2.05] text-white/74 tracking-[0.01em]">
-        AIって結局何ができるの？
-        それを、見てわかる形でまとめた研究室。
-        考えるAI、調べるAI、作るAIを、
-        ひとつずつ体験できる入口です。
+        いくつものAIを、ひとつずつ静かに見ていくための入口。
+        考える部屋、調べる部屋、描く部屋。
+        それぞれの違いを、展示のようにたどれる構成になっています。
       </p>
 
-      {/* バッジ */}
       <div className="mt-6 flex flex-wrap gap-2.5">
         <StatusChip label="LANGUAGE" value="LIVE" color="cyan" pulse />
         <StatusChip label="VISION" value="MERGING" color="fuchsia" />
         <StatusChip label="REASONING" value="AWAKE" color="violet" pulse />
       </div>
 
-      {/* CTAボタン */}
       <div className="mt-8 flex items-center gap-5">
-        
         <EnterButton />
-
       </div>
 
-      {/* AGIパネル */}
       <div
         ref={panelRef}
         className="mt-9 max-w-[650px] overflow-hidden rounded-[28px] border border-white/[0.13] bg-[linear-gradient(135deg,rgba(4,14,28,0.92),rgba(10,20,40,0.72),rgba(110,76,255,0.12))] p-5 shadow-[0_20px_60px_-40px_rgba(110,80,255,0.30),inset_0_0_0_0.5px_rgba(255,255,255,0.04)]"
@@ -359,16 +328,15 @@ function HeroLeft({ panelRef }) {
         </div>
 
         <p className="mb-2.5 text-[21px] font-extralight tracking-[0.04em] text-white/94">
-          いろんなAIをまとめて見る中枢
+          いろんなAIをひとつの視点で見渡す中枢
         </p>
 
         <p className="max-w-[540px] text-[12.5px] leading-[1.95] text-white/64">
           ChatGPT、Claude、Gemini、DeepSeek、Midjourney。
-          それぞれの違いや役割を見ながら、
-          その先にある“次のAI”まで考えるための部屋です。
+          それぞれの違いや空気を見ながら、
+          その先にある知性の輪郭まで考えるための部屋です。
         </p>
 
-        {/* メトリクス行 */}
         <div className="mt-4 flex gap-6 border-t border-white/[0.07] pt-3.5">
           {[
             { k: "NODES", v: "5" },
@@ -434,9 +402,6 @@ function EnterButton() {
   );
 }
 
-/* ─────────────────────────────────────────────────────────
-   右カラム
-───────────────────────────────────────────────────────── */
 function HeroRight() {
   return (
     <div className="relative z-[14] flex flex-col items-end pt-10">
@@ -448,17 +413,17 @@ function HeroRight() {
           </p>
         </div>
         <p className="text-[12px] leading-[1.82] text-white/36 tracking-[0.02em]">
-          気になるAIを選んで、違いを見ていけます。
+          気になる部屋から、ひとつずつ違いを見ていけます。
         </p>
       </div>
 
       <div className="grid w-full max-w-[500px] gap-[10px]">
         {[
-          { label: "ChatGPT", desc: "考えを整理したり、文章に強いAI", meta: "LANGUAGE / STRUCTURE", to: "/chatgpt", glow: "cyan", idx: 0 },
-          { label: "Gemini", desc: "検索や画像まで広く扱えるAI", meta: "SEARCH / MULTIMODAL", to: "/gemini", glow: "sky", idx: 1 },
-          { label: "Claude", desc: "長い文章を読むのが得意なAI", meta: "LONG CONTEXT / STABILITY", to: "/claude", glow: "violet", idx: 2 },
-          { label: "DeepSeek", desc: "推論やコードを速く回しやすいAI", meta: "COMPUTE / REASONING", to: "/deepseek", glow: "emerald", idx: 3 },
-          { label: "Midjourney", desc: "イメージや世界観づくりに強いAI", meta: "VISUAL / IMAGINATION", to: "/midjourney", glow: "fuchsia", idx: 4 },
+          { label: "ChatGPT", desc: "広く受け止めやすい汎用型の部屋", meta: "LANGUAGE / GENERAL", to: "/chatgpt", glow: "cyan", idx: 0 },
+          { label: "Gemini", desc: "検索や視覚情報との接続が印象的な部屋", meta: "SEARCH / MULTIMODAL", to: "/gemini", glow: "sky", idx: 1 },
+          { label: "Claude", desc: "長文読解と整合性に落ち着きを持つ部屋", meta: "LONG CONTEXT / STABILITY", to: "/claude", glow: "violet", idx: 2 },
+          { label: "DeepSeek", desc: "計算と推論の密度を感じさせる部屋", meta: "COMPUTE / REASONING", to: "/deepseek", glow: "emerald", idx: 3 },
+          { label: "Midjourney", desc: "視覚と世界観の引力が強い部屋", meta: "VISUAL / IMAGINATION", to: "/midjourney", glow: "fuchsia", idx: 4 },
         ].map((c) => (
           <Category key={c.label} {...c} />
         ))}
@@ -467,9 +432,6 @@ function HeroRight() {
   );
 }
 
-/* ─────────────────────────────────────────────────────────
-   ステータスチップ
-───────────────────────────────────────────────────────── */
 function StatusChip({ label, value, color = "cyan", pulse = false }) {
   const cfg = {
     cyan: { dot: "bg-cyan-400", glow: "shadow-[0_0_10px_rgba(34,211,238,0.8)]" },
@@ -489,9 +451,6 @@ function StatusChip({ label, value, color = "cyan", pulse = false }) {
   );
 }
 
-/* ─────────────────────────────────────────────────────────
-   カテゴリカード
-───────────────────────────────────────────────────────── */
 function Category({ label, desc, meta, to, glow = "cyan", idx = 0 }) {
   const navigate = useNavigate();
   const [hov, setHov] = useState(false);
@@ -529,19 +488,15 @@ function Category({ label, desc, meta, to, glow = "cyan", idx = 0 }) {
             : "inset 0 0 0 0.5px rgba(255,255,255,0.02)",
         }}
       >
-        {/* グロウ */}
         <div
           className={`pointer-events-none absolute inset-y-0 left-0 w-[110px] bg-gradient-to-r ${from} to-transparent blur-2xl transition-opacity duration-300`}
           style={{ opacity: hov ? 1.5 : 0.8 }}
         />
-        {/* 上端ライン */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-        {/* 左カラーバー */}
         <div
           className={`absolute left-0 top-[20%] bottom-[20%] w-[2px] rounded-r-full ${bar} transition-opacity duration-300`}
           style={{ opacity: hov ? 0.65 : 0.28 }}
         />
-        {/* 番号 */}
         <div
           className="pointer-events-none absolute right-4 top-3 font-mono text-[9px] tracking-[0.22em] text-white/16 transition-opacity duration-300"
           style={{ opacity: hov ? 0.42 : 0.16 }}
@@ -574,10 +529,6 @@ function Category({ label, desc, meta, to, glow = "cyan", idx = 0 }) {
   );
 }
 
-/* ═══════════════════════════════════════════════════════
-   THREE.JS
-═══════════════════════════════════════════════════════ */
-
 function CoreScene() {
   return (
     <group>
@@ -598,7 +549,6 @@ function CoreScene() {
   );
 }
 
-/* ── エネルギーシェル ─────────────────────────────────── */
 function EnergyShell() {
   const outerRef = useRef();
   const inner1Ref = useRef();
@@ -694,7 +644,6 @@ function EnergyShell() {
   );
 }
 
-/* ── オービットリング ─────────────────────────────────── */
 function OrbitRings() {
   const g1Ref = useRef();
   const g2Ref = useRef();
@@ -735,7 +684,6 @@ function OrbitRings() {
   );
 }
 
-/* ── データシャード ───────────────────────────────────── */
 function DataShards() {
   const group = useRef();
 
@@ -783,7 +731,6 @@ function DataShards() {
   );
 }
 
-/* ── 縦ビーム ────────────────────────────────────────── */
 function VerticalBeam() {
   const b1 = useRef();
   const b2 = useRef();
@@ -822,7 +769,6 @@ function VerticalBeam() {
   );
 }
 
-/* ── フィールドライン ─────────────────────────────────── */
 function FieldLines() {
   const group = useRef();
 
@@ -864,7 +810,6 @@ function FieldLines() {
   );
 }
 
-/* ── サテライトオーブ ─────────────────────────────────── */
 function SatelliteOrbs() {
   const orbData = useMemo(
     () =>
@@ -914,7 +859,6 @@ function SatelliteOrbs() {
   );
 }
 
-/* ── パルスハロー ─────────────────────────────────────── */
 function PulseHalos() {
   const r1 = useRef();
   const r2 = useRef();

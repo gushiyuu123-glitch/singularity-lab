@@ -111,9 +111,6 @@ export default function HeroSP() {
       ref={rootRef}
       className="relative flex min-h-screen w-full flex-col overflow-hidden bg-[#020611] md:hidden"
     >
-      {/* ========================================
-          BACKGROUND
-      ======================================== */}
       <div className="absolute inset-0">
         <img
           src={heroImg}
@@ -187,9 +184,6 @@ export default function HeroSP() {
         </svg>
       </div>
 
-      {/* ========================================
-          LOGO
-      ======================================== */}
       <div ref={logoRef} className="absolute left-5 top-5 z-[30]">
         <img
           src={logo}
@@ -198,9 +192,6 @@ export default function HeroSP() {
         />
       </div>
 
-      {/* ========================================
-          SCAN LINE
-      ======================================== */}
       <div
         ref={scanRef}
         className="pointer-events-none absolute inset-x-0 top-[18.4rem] z-[9] h-px"
@@ -208,9 +199,6 @@ export default function HeroSP() {
         <div className="h-full bg-gradient-to-r from-transparent via-cyan-300/18 to-transparent" />
       </div>
 
-      {/* ========================================
-          CORE
-      ======================================== */}
       <div
         ref={coreRef}
         className="pointer-events-none absolute left-1/2 top-[10.5rem] z-[8] h-[14rem] w-[14rem] -translate-x-1/2"
@@ -234,9 +222,6 @@ export default function HeroSP() {
         <span className="absolute bottom-[21%] left-[24%] h-[6px] w-[6px] rotate-45 bg-violet-300/50 shadow-[0_0_10px_rgba(196,181,253,0.16)]" />
       </div>
 
-      {/* ========================================
-          TYPOGRAPHY
-      ======================================== */}
       <div className="relative z-[12] pt-[6rem]">
         <div className="relative px-5">
           <div className="pointer-events-none absolute left-4 top-[5.2rem] select-none text-[46px] font-black uppercase leading-none tracking-[0.16em] text-white/[0.024]">
@@ -285,10 +270,9 @@ export default function HeroSP() {
 
           <div ref={copyRef}>
             <p className="mt-4 max-w-[24rem] text-[13.5px] leading-[1.9] tracking-[0.01em] text-white/78">
-              AIって結局何ができるの？
-              それを、見てわかる形でまとめた研究室。
-              考えるAI、調べるAI、作るAIを、
-              ひとつずつ見ていける入口です。
+              いくつものAIを、見てわかる形でまとめた研究室。
+              考える部屋、調べる部屋、描く部屋。
+              それぞれの違いを、ひとつずつ辿っていける入口です。
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">
@@ -299,17 +283,14 @@ export default function HeroSP() {
 
             <div className="mt-6 flex items-center gap-3">
               <EnterButtonSP />
-          <div className="text-[10.5px] leading-[1.7] text-white/42">
-  記録室へ入れます。
-</div>
+              <div className="text-[10.5px] leading-[1.7] text-white/42">
+                記録室へ入れます。
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* ========================================
-          ACCESS PANEL
-      ======================================== */}
       <div ref={panelRef} className="relative z-[14] mt-9 px-4">
         <div className="pointer-events-none mb-4 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
@@ -327,7 +308,7 @@ export default function HeroSP() {
               <span className="h-px flex-1 bg-gradient-to-r from-white/12 to-transparent" />
             </div>
             <p className="mt-2 text-[12px] leading-[1.75] text-white/50">
-              気になるAIを選んで、違いを見ていけます。
+              気になる部屋から、ひとつずつ違いを見ていけます。
             </p>
           </div>
 
@@ -347,43 +328,43 @@ export default function HeroSP() {
 
             <p className="text-[11.5px] leading-[1.76] text-white/66">
               ChatGPT、Claude、Gemini、DeepSeek、Midjourney。
-              それぞれの違いを見ながら、
-              その先のAIまで考えるための中枢です。
+              それぞれの違いや空気を見ながら、
+              その先の知性まで考えるための中枢です。
             </p>
           </div>
 
           <div className="relative z-10 space-y-3">
             <CategorySP
               label="ChatGPT"
-              desc="考えを整理したり、文章に強いAI"
-              meta="LANGUAGE / STRUCTURE"
+              desc="広く受け止めやすい汎用型の部屋"
+              meta="LANGUAGE / GENERAL"
               to="/chatgpt"
               glow="cyan"
             />
             <CategorySP
               label="Gemini"
-              desc="検索や画像まで広く扱えるAI"
+              desc="検索や視覚情報との接続が印象的な部屋"
               meta="SEARCH / MULTIMODAL"
               to="/gemini"
               glow="sky"
             />
             <CategorySP
               label="Claude"
-              desc="長い文章を読むのが得意なAI"
+              desc="長文読解と整合性に落ち着きを持つ部屋"
               meta="LONG CONTEXT / STABILITY"
               to="/claude"
               glow="violet"
             />
             <CategorySP
               label="DeepSeek"
-              desc="推論やコードを速く回しやすいAI"
+              desc="計算と推論の密度を感じさせる部屋"
               meta="COMPUTE / REASONING"
               to="/deepseek"
               glow="emerald"
             />
             <CategorySP
               label="Midjourney"
-              desc="イメージや世界観づくりに強いAI"
+              desc="視覚と世界観の引力が強い部屋"
               meta="VISUAL / IMAGINATION"
               to="/midjourney"
               glow="fuchsia"
@@ -392,9 +373,6 @@ export default function HeroSP() {
         </div>
       </div>
 
-      {/* ========================================
-          SUB LINKS
-      ======================================== */}
       <div className="relative z-[16] mb-8 mt-6 px-4">
         <div className="grid grid-cols-2 gap-3">
           <a
@@ -426,12 +404,12 @@ export default function HeroSP() {
               >
                 Origin
               </p>
-<p
-  className="mt-[5px] text-[11px] tracking-[0.14em]"
-  style={{ opacity: 0.86 }}
->
-  記憶の扉を開く
-</p>
+              <p
+                className="mt-[5px] text-[11px] tracking-[0.14em]"
+                style={{ opacity: 0.86 }}
+              >
+                記憶の扉を開く
+              </p>
             </div>
           </a>
 
