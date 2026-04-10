@@ -3,13 +3,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 import gsap from "gsap";
 
 const NAV_ITEMS = [
-  { label: "HOME", to: "/", meta: "入口 / 中枢" },
-  { label: "ChatGPT", to: "/chatgpt", meta: "言語 / 構造" },
-  { label: "Claude", to: "/claude", meta: "長文 / 安定性" },
-  { label: "Gemini", to: "/gemini", meta: "検索 / マルチモーダル" },
-  { label: "DeepSeek", to: "/deepseek", meta: "演算 / 推論" },
-  { label: "Midjourney", to: "/midjourney", meta: "視覚 / 想像" },
-  { label: "AGI", to: "/agi", meta: "絶対知能 / 観測不能領域", special: true },
+  { label: "HOME", to: "/", meta: "入口 / 中央" },
+  { label: "ChatGPT", to: "/chatgpt", meta: "汎用 / 対話" },
+  { label: "Claude", to: "/claude", meta: "読解 / 整理" },
+  { label: "Gemini", to: "/gemini", meta: "接続 / 多感覚" },
+  { label: "DeepSeek", to: "/deepseek", meta: "演算 / 密度" },
+  { label: "Midjourney", to: "/midjourney", meta: "視覚 / 印象" },
+  { label: "AGI", to: "/agi", meta: "最終層 / 未踏領域", special: true },
 ];
 
 export default function GlobalNav() {
@@ -82,7 +82,6 @@ export default function GlobalNav() {
       />
 
       <div className="fixed right-4 top-4 z-[300] flex max-w-[calc(100vw-2rem)] items-start justify-end md:right-6 md:top-6 xl:right-8 xl:top-8">
-        {/* TOGGLE */}
         <button
           type="button"
           onClick={() => setOpen((prev) => !prev)}
@@ -131,7 +130,6 @@ export default function GlobalNav() {
           </span>
         </button>
 
-        {/* PANEL */}
         <nav
           aria-hidden={!open}
           className={`
@@ -154,7 +152,6 @@ export default function GlobalNav() {
 
           <div className="nav-panel-inner relative px-4 py-4 md:px-5 md:py-5">
             <div className="grid gap-4 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-5">
-              {/* left HUD */}
               <div
                 className={`
                   relative overflow-hidden rounded-[22px] border px-4 py-4
@@ -180,7 +177,7 @@ export default function GlobalNav() {
                   </p>
 
                   <p className="mt-1 text-[10px] leading-[1.7] tracking-[0.14em] text-white/32">
-                    {isAgiActive ? "絶対知能 / 観測不能領域" : currentItem.meta}
+                    {isAgiActive ? "最終層 / 未踏領域" : currentItem.meta}
                   </p>
                 </div>
 
@@ -198,7 +195,6 @@ export default function GlobalNav() {
                 </div>
               </div>
 
-              {/* nav items */}
               <div className="min-w-0">
                 <div className="mb-3 flex items-center gap-3">
                   <span className="text-[10px] tracking-[0.22em] text-white/44">

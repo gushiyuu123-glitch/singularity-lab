@@ -3,13 +3,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 import gsap from "gsap";
 
 const NAV_ITEMS = [
-  { label: "HOME", to: "/", meta: "入口 / 中枢" },
-  { label: "ChatGPT", to: "/chatgpt", meta: "言語 / 構造" },
-  { label: "Claude", to: "/claude", meta: "長文 / 安定性" },
-  { label: "Gemini", to: "/gemini", meta: "検索 / マルチモーダル" },
-  { label: "DeepSeek", to: "/deepseek", meta: "演算 / 推論" },
-  { label: "Midjourney", to: "/midjourney", meta: "視覚 / 想像" },
-  { label: "AGI", to: "/agi", meta: "絶対知能 / 観測不能領域", special: true },
+  { label: "HOME", to: "/", meta: "入口 / 中央" },
+  { label: "ChatGPT", to: "/chatgpt", meta: "汎用 / 対話" },
+  { label: "Claude", to: "/claude", meta: "読解 / 整理" },
+  { label: "Gemini", to: "/gemini", meta: "接続 / 多感覚" },
+  { label: "DeepSeek", to: "/deepseek", meta: "演算 / 密度" },
+  { label: "Midjourney", to: "/midjourney", meta: "視覚 / 印象" },
+  { label: "AGI", to: "/agi", meta: "最終層 / 未踏領域", special: true },
 ];
 
 export default function GlobalNavSP() {
@@ -70,7 +70,6 @@ export default function GlobalNavSP() {
 
   return (
     <>
-      {/* OVERLAY */}
       <div
         onClick={() => setOpen(false)}
         className={`
@@ -83,7 +82,6 @@ export default function GlobalNavSP() {
       />
 
       <div className="fixed right-5 top-5 z-[400] md:hidden">
-        {/* TOGGLE */}
         <button
           type="button"
           onClick={() => setOpen((prev) => !prev)}
@@ -135,7 +133,6 @@ export default function GlobalNavSP() {
           </span>
         </button>
 
-        {/* BOTTOM CONTROL SHEET */}
         <div
           className={`
             fixed inset-x-0 bottom-0 z-[390]
@@ -153,7 +150,6 @@ export default function GlobalNavSP() {
             paddingBottom: "max(1rem, env(safe-area-inset-bottom))",
           }}
         >
-          {/* visual layers */}
           <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-t-[32px]">
             <div
               className={`absolute inset-0 ${
@@ -176,9 +172,7 @@ export default function GlobalNavSP() {
             <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
           </div>
 
-          {/* layout shell */}
           <div className="sp-sheet-reveal relative z-10 flex max-h-[inherit] flex-col">
-            {/* handle */}
             <div className="mb-4 flex w-full shrink-0 justify-center pt-4">
               <div className="relative h-[6px] w-[56px] rounded-full bg-white/14">
                 <span
@@ -189,7 +183,6 @@ export default function GlobalNavSP() {
               </div>
             </div>
 
-            {/* header */}
             <div className="mb-4 shrink-0 px-5">
               <div
                 className={`relative overflow-hidden rounded-[22px] border px-4 py-4 ${
@@ -232,7 +225,7 @@ export default function GlobalNavSP() {
                       {isAgiActive ? "最終接続先 / AGI" : `現在の接続先 / ${currentItem.label}`}
                     </p>
                     <p className="mt-1 break-words text-[10px] tracking-[0.14em] text-white/34">
-                      {isAgiActive ? "絶対知能 / 観測不能領域" : currentItem.meta}
+                      {isAgiActive ? "最終層 / 未踏領域" : currentItem.meta}
                     </p>
 
                     <div className="mt-3 flex items-center gap-2">
@@ -263,7 +256,6 @@ export default function GlobalNavSP() {
               </div>
             </div>
 
-            {/* section title */}
             <div className="mb-3 shrink-0 px-5">
               <div className="flex items-center gap-3">
                 <span className="text-[10px] tracking-[0.22em] text-white/42">
@@ -273,7 +265,6 @@ export default function GlobalNavSP() {
               </div>
             </div>
 
-            {/* scroll area */}
             <div className="min-h-0 flex-1 overflow-y-auto px-3 pb-2">
               <div className="flex flex-col">
                 {NAV_ITEMS.map((item, index) => (
