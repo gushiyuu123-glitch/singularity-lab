@@ -5,44 +5,44 @@ const logEntries = [
   {
     id: "LOG-001",
     category: "THOUGHT",
-    title: "AIがある時代ほど、自分で考える力が大事になる",
+    title: "AIがある時代ほど、自分で考えることの輪郭は残る",
     summary:
-      "AIは全部を代わりにやってくれる道具ではなく、考えを整理したり、方向を見つけたりする時に強い。使い方が浅いと浅い答えになり、深く使うほど自分の考えもはっきりしてくる。",
+      "AIは全部を代わりにやってくれる存在というより、考えを整理したり、視点を広げたりする時に役立つことがある。向き合い方によって、見えてくるものの質も変わっていく。",
     date: "2026.04.06",
   },
   {
     id: "LOG-002",
     category: "DESIGN",
-    title: "サイトは見た目だけじゃなく、伝わり方まで含めて作る",
+    title: "サイトは見た目だけでなく、受け取り方まで含めて形になる",
     summary:
-      "色やレイアウトを整えるだけではなく、見た人がどう感じるか、何が伝わるかまで考えて作ることで、サイトの印象は大きく変わる。",
+      "色やレイアウトを整えるだけではなく、見た人の中でどんな印象が残るかまで考えることで、サイトの空気は大きく変わる。",
     date: "2026.04.06",
   },
   {
     id: "LOG-003",
     category: "SYSTEM",
-    title: "AIは全部同じじゃなく、役割で見るとわかりやすい",
+    title: "AIはひとつの塊ではなく、違いを見ていくと輪郭が出てくる",
     summary:
-      "考えるのが得意なAI、調べるのが得意なAI、画像に強いAI。それぞれの役割で分けて見ると、何に使えばいいかがかなりはっきりする。",
+      "考えることに向いた部屋、外とつながる部屋、視覚を扱う部屋。それぞれの違いをゆっくり見ていくと、全体の見え方も変わってくる。",
     date: "2026.04.06",
   },
   {
     id: "LOG-004",
     category: "RECORD",
-    title: "この研究室は、機能を並べるだけの場所ではない",
+    title: "この研究室は、答えだけを並べるための場所ではない",
     summary:
-      "どのAIにどんな特徴があるかだけでなく、実際にどう使えるのか、どんな違いがあるのかまで見えるようにしたい。ここはそのための記録部屋。",
+      "どのAIにどんな印象があるかだけでなく、その間にある空気や差分まで見えるようにしたい。ここは、そのための静かな記録室。",
     date: "2026.04.06",
   },
 ];
 
 const archiveNotes = [
-  "制作メモ",
-  "AIごとの気づき",
-  "実験記録",
-  "思考メモ",
-  "作品の裏側",
-  "今後の構想",
+  "制作の断片",
+  "小さな気づき",
+  "実験の跡",
+  "思考の余白",
+  "作品の気配",
+  "次の構想",
 ];
 
 export default function LogRoom() {
@@ -57,7 +57,6 @@ export default function LogRoom() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-bg text-text-primary">
-      {/* background */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#020611_0%,#040a16_42%,#02040b_100%)]" />
 
@@ -92,7 +91,6 @@ export default function LogRoom() {
         <div className="absolute inset-x-0 bottom-0 h-[20%] bg-gradient-to-t from-[#020611] to-transparent" />
       </div>
 
-      {/* hero */}
       <section className="relative z-[1] px-6 pb-14 pt-28 md:px-10 md:pt-32 xl:px-14">
         <div className="mx-auto max-w-[1360px]">
           <div className="grid items-start gap-8 xl:grid-cols-[minmax(0,1fr)_340px]">
@@ -117,7 +115,7 @@ export default function LogRoom() {
 
                 <h1 className="relative text-[42px] font-semibold leading-[0.94] tracking-[-0.04em] text-white md:text-[64px] xl:text-[82px]">
                   <span className="block bg-[linear-gradient(180deg,#ffffff_0%,#d8f3ff_48%,#8fdcff_100%)] bg-clip-text text-transparent">
-                    OBSERVATION
+                    QUIET
                   </span>
                   <span className="mt-1 block bg-[linear-gradient(100deg,#ffffff_0%,#e1c9ff_50%,#91efff_100%)] bg-clip-text text-transparent">
                     ARCHIVE
@@ -126,14 +124,16 @@ export default function LogRoom() {
 
                 <div className="mt-6 max-w-[700px] space-y-4">
                   <p className="text-[15px] leading-[2] text-text-secondary md:text-[16px]">
-                    ここは、AIや制作についての記録を置いていく部屋です。
-                    気づいたこと、試したこと、考えたことを、
-                    少しずつ残していきます。
+                    ここは、AIや制作のまわりで見えたものを、
+                    静かに置いていくための部屋です。
+                    気づいたこと、残った印象、途中で触れた感覚を、
+                    少しずつ並べていきます。
                   </p>
                   <p className="text-[14px] leading-[1.95] text-text-muted md:text-[15px]">
-                    完成した答えだけではなく、
-                    途中で見えた違和感や仮説も含めて保存していく。
-                    この部屋は、その痕跡を静かに積み重ねていくための保管庫です。
+                    はっきり言い切れるものだけではなく、
+                    まだ名前のついていない感覚や、
+                    途中で残った余韻も含めて置いていく。
+                    この部屋は、その断片を静かに積み重ねるためのアーカイブです。
                   </p>
                 </div>
 
@@ -175,18 +175,18 @@ export default function LogRoom() {
               </div>
 
               <p className="mb-4 text-[13px] leading-[1.9] text-text-secondary">
-                ここには、完成した答えよりも、
-                作る途中で見えたことや、
-                まだ言い切れない感覚を残していきます。
+                ここには、結論だけではなく、
+                作る途中で残った気配や、
+                まだ言葉になりきらない感覚も置いていきます。
               </p>
 
               <div className="mb-5 rounded-[20px] border border-white/10 bg-white/[0.03] p-4">
                 <p className="text-[10px] tracking-[0.2em] text-cyan-200/72 uppercase">
-                  ARCHIVE POLICY
+                  ROOM POLICY
                 </p>
                 <p className="mt-2 text-[12px] leading-[1.85] text-white/58">
-                  完成形だけを飾るのではなく、
-                  思考の途中経過や、試行錯誤の跡まで保管する。
+                  完成した形だけを並べるのではなく、
+                  途中で残った断片や、静かな変化もここに置いていく。
                 </p>
               </div>
 
@@ -206,12 +206,11 @@ export default function LogRoom() {
         </div>
       </section>
 
-      {/* records */}
       <section className="relative z-[1] px-6 pb-24 md:px-10 xl:px-14">
         <div className="mx-auto max-w-[1360px]">
           <div className="mb-6 flex items-center gap-3">
             <p className="text-[10.5px] tracking-[0.24em] text-white/62 uppercase">
-              RECORD ENTRIES
+              ROOM ENTRIES
             </p>
             <span className="h-px flex-1 bg-gradient-to-r from-white/12 to-transparent" />
           </div>
@@ -253,7 +252,7 @@ export default function LogRoom() {
 
                 <div className="mt-5 flex items-center justify-between border-t border-white/8 pt-4">
                   <span className="text-[10px] tracking-[0.18em] text-white/28 uppercase">
-                    Archive Entry
+                    Room Entry
                   </span>
                   <span className="text-[13px] text-white/18 transition-all duration-300 group-hover:translate-x-[3px] group-hover:text-white/46">
                     →
